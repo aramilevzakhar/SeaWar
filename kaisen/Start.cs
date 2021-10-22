@@ -15,12 +15,24 @@ namespace kaisen
         public Start()
         {
             InitializeComponent();
+            this.CenterToScreen();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            gameForm gameForm = new gameForm();
-            gameForm.Show();
+            
+            if (textBox1.Text == "")
+            {
+                MessageBox.Show("Type your name!");
+            }
+            else
+            {
+                gameForm gameForm = new gameForm();
+                gameForm.label1.Text = string.Format("{0} vs Bot", textBox1.Text); 
+                gameForm.Show();
+                this.Hide();
+            }
         }
     }
 }

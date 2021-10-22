@@ -28,181 +28,190 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button243 = new System.Windows.Forms.Button();
-            this.button244 = new System.Windows.Forms.Button();
-            this.button245 = new System.Windows.Forms.Button();
-            this.button246 = new System.Windows.Forms.Button();
-            this.button247 = new System.Windows.Forms.Button();
-            this.button248 = new System.Windows.Forms.Button();
-            this.button249 = new System.Windows.Forms.Button();
-            this.button250 = new System.Windows.Forms.Button();
-            this.button251 = new System.Windows.Forms.Button();
-            this.button252 = new System.Windows.Forms.Button();
-            this.button253 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.components = new System.ComponentModel.Container();
+            this.bship23 = new System.Windows.Forms.Button();
+            this.bship22 = new System.Windows.Forms.Button();
+            this.bship21 = new System.Windows.Forms.Button();
+            this.bship11 = new System.Windows.Forms.Button();
+            this.bship32 = new System.Windows.Forms.Button();
+            this.bship31 = new System.Windows.Forms.Button();
+            this.bship12 = new System.Windows.Forms.Button();
+            this.bship41 = new System.Windows.Forms.Button();
+            this.bship13 = new System.Windows.Forms.Button();
+            this.bship14 = new System.Windows.Forms.Button();
+            this.btoggleVH = new System.Windows.Forms.Button();
+            this.buttonPlay = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button243
+            // bship23
             // 
-            this.button243.BackColor = System.Drawing.Color.Lime;
-            this.button243.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
-            this.button243.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.button243.Location = new System.Drawing.Point(189, 361);
-            this.button243.Name = "button243";
-            this.button243.Size = new System.Drawing.Size(30, 29);
-            this.button243.TabIndex = 0;
-            this.button243.Text = "2";
-            this.button243.UseVisualStyleBackColor = false;
-            this.button243.Click += new System.EventHandler(this.button252_Click);
+            this.bship23.BackColor = System.Drawing.Color.Lime;
+            this.bship23.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
+            this.bship23.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.bship23.Location = new System.Drawing.Point(189, 361);
+            this.bship23.Name = "bship23";
+            this.bship23.Size = new System.Drawing.Size(30, 29);
+            this.bship23.TabIndex = 0;
+            this.bship23.Text = "2";
+            this.bship23.UseVisualStyleBackColor = false;
+            this.bship23.Click += new System.EventHandler(this.button252_Click);
             // 
-            // button244
+            // bship22
             // 
-            this.button244.BackColor = System.Drawing.Color.Lime;
-            this.button244.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
-            this.button244.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.button244.Location = new System.Drawing.Point(159, 361);
-            this.button244.Name = "button244";
-            this.button244.Size = new System.Drawing.Size(30, 29);
-            this.button244.TabIndex = 0;
-            this.button244.Text = "2";
-            this.button244.UseVisualStyleBackColor = false;
-            this.button244.Click += new System.EventHandler(this.button252_Click);
+            this.bship22.BackColor = System.Drawing.Color.Lime;
+            this.bship22.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
+            this.bship22.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.bship22.Location = new System.Drawing.Point(159, 361);
+            this.bship22.Name = "bship22";
+            this.bship22.Size = new System.Drawing.Size(30, 29);
+            this.bship22.TabIndex = 0;
+            this.bship22.Text = "2";
+            this.bship22.UseVisualStyleBackColor = false;
+            this.bship22.Click += new System.EventHandler(this.button252_Click);
             // 
-            // button245
+            // bship21
             // 
-            this.button245.BackColor = System.Drawing.Color.Lime;
-            this.button245.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
-            this.button245.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.button245.Location = new System.Drawing.Point(129, 361);
-            this.button245.Name = "button245";
-            this.button245.Size = new System.Drawing.Size(30, 29);
-            this.button245.TabIndex = 0;
-            this.button245.Text = "2";
-            this.button245.UseVisualStyleBackColor = false;
-            this.button245.Click += new System.EventHandler(this.button252_Click);
+            this.bship21.BackColor = System.Drawing.Color.Lime;
+            this.bship21.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
+            this.bship21.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.bship21.Location = new System.Drawing.Point(129, 361);
+            this.bship21.Name = "bship21";
+            this.bship21.Size = new System.Drawing.Size(30, 29);
+            this.bship21.TabIndex = 0;
+            this.bship21.Text = "2";
+            this.bship21.UseVisualStyleBackColor = false;
+            this.bship21.Click += new System.EventHandler(this.button252_Click);
             // 
-            // button246
+            // bship11
             // 
-            this.button246.BackColor = System.Drawing.Color.Lime;
-            this.button246.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
-            this.button246.FlatAppearance.BorderSize = 5;
-            this.button246.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.button246.Location = new System.Drawing.Point(219, 361);
-            this.button246.Name = "button246";
-            this.button246.Size = new System.Drawing.Size(30, 29);
-            this.button246.TabIndex = 0;
-            this.button246.Text = "1";
-            this.button246.UseVisualStyleBackColor = false;
-            this.button246.Click += new System.EventHandler(this.button252_Click);
+            this.bship11.BackColor = System.Drawing.Color.Lime;
+            this.bship11.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
+            this.bship11.FlatAppearance.BorderSize = 5;
+            this.bship11.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.bship11.Location = new System.Drawing.Point(219, 361);
+            this.bship11.Name = "bship11";
+            this.bship11.Size = new System.Drawing.Size(30, 29);
+            this.bship11.TabIndex = 0;
+            this.bship11.Text = "1";
+            this.bship11.UseVisualStyleBackColor = false;
+            this.bship11.Click += new System.EventHandler(this.button252_Click);
             // 
-            // button247
+            // bship32
             // 
-            this.button247.BackColor = System.Drawing.Color.Lime;
-            this.button247.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
-            this.button247.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.button247.Location = new System.Drawing.Point(99, 361);
-            this.button247.Name = "button247";
-            this.button247.Size = new System.Drawing.Size(30, 29);
-            this.button247.TabIndex = 0;
-            this.button247.Text = "3";
-            this.button247.UseVisualStyleBackColor = false;
-            this.button247.Click += new System.EventHandler(this.button252_Click);
+            this.bship32.BackColor = System.Drawing.Color.Lime;
+            this.bship32.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
+            this.bship32.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.bship32.Location = new System.Drawing.Point(99, 361);
+            this.bship32.Name = "bship32";
+            this.bship32.Size = new System.Drawing.Size(30, 29);
+            this.bship32.TabIndex = 0;
+            this.bship32.Text = "3";
+            this.bship32.UseVisualStyleBackColor = false;
+            this.bship32.Click += new System.EventHandler(this.button252_Click);
             // 
-            // button248
+            // bship31
             // 
-            this.button248.BackColor = System.Drawing.Color.Lime;
-            this.button248.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
-            this.button248.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.button248.Location = new System.Drawing.Point(69, 361);
-            this.button248.Name = "button248";
-            this.button248.Size = new System.Drawing.Size(30, 29);
-            this.button248.TabIndex = 0;
-            this.button248.Text = "3";
-            this.button248.UseVisualStyleBackColor = false;
-            this.button248.Click += new System.EventHandler(this.button252_Click);
+            this.bship31.BackColor = System.Drawing.Color.Lime;
+            this.bship31.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
+            this.bship31.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.bship31.Location = new System.Drawing.Point(69, 361);
+            this.bship31.Name = "bship31";
+            this.bship31.Size = new System.Drawing.Size(30, 29);
+            this.bship31.TabIndex = 0;
+            this.bship31.Text = "3";
+            this.bship31.UseVisualStyleBackColor = false;
+            this.bship31.Click += new System.EventHandler(this.button252_Click);
             // 
-            // button249
+            // bship12
             // 
-            this.button249.BackColor = System.Drawing.Color.Lime;
-            this.button249.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
-            this.button249.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.button249.Location = new System.Drawing.Point(249, 361);
-            this.button249.Name = "button249";
-            this.button249.Size = new System.Drawing.Size(30, 29);
-            this.button249.TabIndex = 0;
-            this.button249.Text = "1";
-            this.button249.UseVisualStyleBackColor = false;
-            this.button249.Click += new System.EventHandler(this.button252_Click);
+            this.bship12.BackColor = System.Drawing.Color.Lime;
+            this.bship12.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
+            this.bship12.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.bship12.Location = new System.Drawing.Point(249, 361);
+            this.bship12.Name = "bship12";
+            this.bship12.Size = new System.Drawing.Size(30, 29);
+            this.bship12.TabIndex = 0;
+            this.bship12.Text = "1";
+            this.bship12.UseVisualStyleBackColor = false;
+            this.bship12.Click += new System.EventHandler(this.button252_Click);
             // 
-            // button250
+            // bship41
             // 
-            this.button250.BackColor = System.Drawing.Color.Lime;
-            this.button250.FlatAppearance.BorderColor = System.Drawing.Color.PaleGreen;
-            this.button250.FlatAppearance.BorderSize = 4;
-            this.button250.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.button250.Location = new System.Drawing.Point(39, 361);
-            this.button250.Name = "button250";
-            this.button250.Size = new System.Drawing.Size(30, 29);
-            this.button250.TabIndex = 0;
-            this.button250.Text = "4";
-            this.button250.UseVisualStyleBackColor = false;
-            this.button250.Click += new System.EventHandler(this.button252_Click);
+            this.bship41.BackColor = System.Drawing.Color.Lime;
+            this.bship41.FlatAppearance.BorderColor = System.Drawing.Color.PaleGreen;
+            this.bship41.FlatAppearance.BorderSize = 4;
+            this.bship41.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.bship41.Location = new System.Drawing.Point(39, 361);
+            this.bship41.Name = "bship41";
+            this.bship41.Size = new System.Drawing.Size(30, 29);
+            this.bship41.TabIndex = 0;
+            this.bship41.Text = "4";
+            this.bship41.UseVisualStyleBackColor = false;
+            this.bship41.Click += new System.EventHandler(this.button252_Click);
             // 
-            // button251
+            // bship13
             // 
-            this.button251.BackColor = System.Drawing.Color.Lime;
-            this.button251.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
-            this.button251.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.button251.Location = new System.Drawing.Point(279, 361);
-            this.button251.Name = "button251";
-            this.button251.Size = new System.Drawing.Size(30, 29);
-            this.button251.TabIndex = 0;
-            this.button251.Text = "1";
-            this.button251.UseVisualStyleBackColor = false;
-            this.button251.Click += new System.EventHandler(this.button252_Click);
+            this.bship13.BackColor = System.Drawing.Color.Lime;
+            this.bship13.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
+            this.bship13.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.bship13.Location = new System.Drawing.Point(279, 361);
+            this.bship13.Name = "bship13";
+            this.bship13.Size = new System.Drawing.Size(30, 29);
+            this.bship13.TabIndex = 0;
+            this.bship13.Text = "1";
+            this.bship13.UseVisualStyleBackColor = false;
+            this.bship13.Click += new System.EventHandler(this.button252_Click);
             // 
-            // button252
+            // bship14
             // 
-            this.button252.BackColor = System.Drawing.Color.Lime;
-            this.button252.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
-            this.button252.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.button252.Location = new System.Drawing.Point(309, 361);
-            this.button252.Name = "button252";
-            this.button252.Size = new System.Drawing.Size(30, 29);
-            this.button252.TabIndex = 0;
-            this.button252.Text = "1";
-            this.button252.UseVisualStyleBackColor = false;
-            this.button252.Click += new System.EventHandler(this.button252_Click);
+            this.bship14.BackColor = System.Drawing.Color.Lime;
+            this.bship14.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
+            this.bship14.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.bship14.Location = new System.Drawing.Point(309, 361);
+            this.bship14.Name = "bship14";
+            this.bship14.Size = new System.Drawing.Size(30, 29);
+            this.bship14.TabIndex = 0;
+            this.bship14.Text = "1";
+            this.bship14.UseVisualStyleBackColor = false;
+            this.bship14.Click += new System.EventHandler(this.button252_Click);
             // 
-            // button253
+            // btoggleVH
             // 
-            this.button253.BackColor = System.Drawing.Color.Lime;
-            this.button253.FlatAppearance.BorderSize = 5;
-            this.button253.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button253.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.button253.Location = new System.Drawing.Point(9, 361);
-            this.button253.Name = "button253";
-            this.button253.Size = new System.Drawing.Size(30, 29);
-            this.button253.TabIndex = 0;
-            this.button253.Text = "--";
-            this.button253.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button253.UseVisualStyleBackColor = false;
-            this.button253.Click += new System.EventHandler(this.button253_Click);
+            this.btoggleVH.BackColor = System.Drawing.Color.Lime;
+            this.btoggleVH.FlatAppearance.BorderSize = 5;
+            this.btoggleVH.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btoggleVH.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.btoggleVH.Location = new System.Drawing.Point(9, 361);
+            this.btoggleVH.Name = "btoggleVH";
+            this.btoggleVH.Size = new System.Drawing.Size(30, 29);
+            this.btoggleVH.TabIndex = 0;
+            this.btoggleVH.Text = "--";
+            this.btoggleVH.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btoggleVH.UseVisualStyleBackColor = false;
+            this.btoggleVH.Click += new System.EventHandler(this.button253_Click);
             // 
-            // button1
+            // buttonPlay
             // 
-            this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button1.BackColor = System.Drawing.SystemColors.Control;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.button1.Location = new System.Drawing.Point(345, 361);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 29);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Старт";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonPlay.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonPlay.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonPlay.FlatAppearance.BorderSize = 0;
+            this.buttonPlay.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.buttonPlay.Location = new System.Drawing.Point(345, 361);
+            this.buttonPlay.Name = "buttonPlay";
+            this.buttonPlay.Size = new System.Drawing.Size(75, 29);
+            this.buttonPlay.TabIndex = 1;
+            this.buttonPlay.Text = "Старт";
+            this.buttonPlay.UseVisualStyleBackColor = true;
+            this.buttonPlay.Click += new System.EventHandler(this.buttonPlay_Click);
             // 
             // button2
             // 
@@ -232,50 +241,132 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // button1
+            // 
+            this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button1.BackColor = System.Drawing.SystemColors.Control;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.button1.Location = new System.Drawing.Point(345, 396);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 29);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Restart";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(135, 335);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 13);
+            this.label1.TabIndex = 2;
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(94, 335);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 13);
+            this.label2.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(53, 335);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(0, 13);
+            this.label3.TabIndex = 2;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 335);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(0, 13);
+            this.label4.TabIndex = 2;
+            // 
+            // button4
+            // 
+            this.button4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button4.BackColor = System.Drawing.SystemColors.Control;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.button4.Location = new System.Drawing.Point(426, 396);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 29);
+            this.button4.TabIndex = 1;
+            this.button4.Text = "Сдаться";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // gameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(764, 475);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button252);
-            this.Controls.Add(this.button253);
-            this.Controls.Add(this.button250);
-            this.Controls.Add(this.button243);
-            this.Controls.Add(this.button251);
-            this.Controls.Add(this.button244);
-            this.Controls.Add(this.button245);
-            this.Controls.Add(this.button246);
-            this.Controls.Add(this.button247);
-            this.Controls.Add(this.button248);
-            this.Controls.Add(this.button249);
+            this.Controls.Add(this.buttonPlay);
+            this.Controls.Add(this.bship14);
+            this.Controls.Add(this.btoggleVH);
+            this.Controls.Add(this.bship41);
+            this.Controls.Add(this.bship23);
+            this.Controls.Add(this.bship13);
+            this.Controls.Add(this.bship22);
+            this.Controls.Add(this.bship21);
+            this.Controls.Add(this.bship11);
+            this.Controls.Add(this.bship32);
+            this.Controls.Add(this.bship31);
+            this.Controls.Add(this.bship12);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "gameForm";
             this.Text = "Form1";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button button243;
-        private System.Windows.Forms.Button button244;
-        private System.Windows.Forms.Button button245;
-        private System.Windows.Forms.Button button246;
-        private System.Windows.Forms.Button button247;
-        private System.Windows.Forms.Button button248;
-        private System.Windows.Forms.Button button249;
-        private System.Windows.Forms.Button button250;
-        private System.Windows.Forms.Button button251;
-        private System.Windows.Forms.Button button252;
-        private System.Windows.Forms.Button button253;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button bship23;
+        private System.Windows.Forms.Button bship22;
+        private System.Windows.Forms.Button bship21;
+        private System.Windows.Forms.Button bship11;
+        private System.Windows.Forms.Button bship32;
+        private System.Windows.Forms.Button bship31;
+        private System.Windows.Forms.Button bship12;
+        private System.Windows.Forms.Button bship41;
+        private System.Windows.Forms.Button bship13;
+        private System.Windows.Forms.Button bship14;
+        private System.Windows.Forms.Button btoggleVH;
+        private System.Windows.Forms.Button buttonPlay;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Timer timer1;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button4;
     }
 }
 

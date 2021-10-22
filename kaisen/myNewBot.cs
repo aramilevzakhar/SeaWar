@@ -18,16 +18,19 @@ namespace kaisen
         public Button[,] myMap = new Button[gameForm.sizeXmap, gameForm.sizeYmap];
         Random r = new Random();
 
+
+        public int acc = 0;
+
         public MyNewBot(int [,]enemyMapBin, int [,]myMapBin, Button [,]enemyMap, Button [,]myMap)
         {
             this.enemyMapBin = enemyMapBin;
             this.myMapBin = myMapBin;
             this.enemyMap = enemyMap;
             this.myMap = myMap;
-
-            for (int i = 0; i < gameForm.sizeXmap - 1; i++)
+            
+            for (int i = 0; i < gameForm.sizeXmap; i++)
             {
-                for (int j = 0; j < gameForm.sizeXmap - 1; j++)
+                for (int j = 0; j < gameForm.sizeXmap; j++)
                 {
                     this.enemyMapBin[i, j] = 0;
                     this.myMapBin[i, j] = 0;
@@ -60,14 +63,17 @@ namespace kaisen
                 if (enemyMapBin[posX, posY] == 1)
                 {
                     hit = true;
-                    enemyMap[posX + 1, posY + 1].BackColor = Color.Orange;
-                    enemyMap[posX + 1, posY + 1].Text = "X";
+                    enemyMap[posX, posY].BackColor = Color.Orange;
+                    enemyMap[posX, posY].Text = "X";
                     //enemyMapBin[posX, posY] = 0;
+                    acc += 1;
+
+                    
                 }
                 else
                 {
-                    enemyMap[posX + 1, posY + 1].BackColor = Color.LightBlue;
-                    enemyMap[posX + 1, posY + 1].Text = "X";
+                    enemyMap[posX, posY].BackColor = Color.LightBlue;
+                    enemyMap[posX, posY].Text = "X";
                 }
             }
             return hit;
@@ -86,7 +92,7 @@ namespace kaisen
             {
                 if (toggleH)
                 {
-                    posX = r.Next(0, gameForm.sizeXmap - 1);
+                    posX = r.Next(0, gameForm.sizeXmap);
                     posY = r.Next(0, gameForm.sizeXmap - length);
                     for (int i = 0; i < length; i++)
                     {
@@ -108,7 +114,7 @@ namespace kaisen
                 else
                 {
                     posX = r.Next(0, gameForm.sizeXmap - length);
-                    posY = r.Next(0, gameForm.sizeXmap - 1);
+                    posY = r.Next(0, gameForm.sizeXmap);
                     for (int i = 0; i < length; i++)
                     {
                         myMapBin[posX + i, posY] = 1;

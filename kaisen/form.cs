@@ -408,7 +408,6 @@ namespace test1
             if (!isPlay)
             {
 
-                int delta = 0;
                 int y = (pressedButton.Location.X - 31 * size_map - 50) / btw_size;
                 int x = pressedButton.Location.Y / btw_size;
                 if (map[x, y])
