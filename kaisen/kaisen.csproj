@@ -46,10 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="form.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Bot.cs" />
     <Compile Include="gameForm.cs">
       <SubType>Form</SubType>
     </Compile>
