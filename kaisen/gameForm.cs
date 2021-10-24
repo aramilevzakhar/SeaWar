@@ -19,6 +19,8 @@ namespace kaisen
     bool enableColorButton = true;
     public const int sizeXmap = 10;
     public const int sizeYmap = 10;
+
+    bool govno_govno = true;
     int posX = 10;
     int posY = 10;
     int cellWidth = 30;
@@ -180,204 +182,49 @@ namespace kaisen
       // 2 - no
       if (canIclick == 1)
       {
-
-        //etColor(x, y, ship, Color.Black, toogle_v_h, true, true);
-        // myMap[x, y].AutoSiz;
         canIclick = 2;
-        setPosShips(x, y, ship, toogle_v_h);
-        enableColorButton = false;
+        setColor(x, y, ship, Color.Black, toogle_v_h, true, true);
+        // myMap[x, y].AutoSiz;
+        
+        //setPosShips(x, y, ship, toogle_v_h);
+        enableColorButton = govno_govno;
 
       }
 
     }
-
-    public void setPosShips(int x, int y, int ship_size, bool toggleVH)
-    {
-      if (ship_size == 1 &&
-        myMapBin[x, y] == 0 &&
-        myMapBin[x, y - 1] == 0 &&
-        myMapBin[x, y + 1] == 0 &&
-
-        myMapBin[x - 1, y] == 0 &&
-        myMapBin[x - 1, y - 1] == 0 &&
-        myMapBin[x - 1, y + 1] == 0 &&
-
-        myMapBin[x + 1, y] == 0 &&
-        myMapBin[x + 1, y - 1] == 0 &&
-        myMapBin[x + 1, y + 1] == 0)
-      {
-        myMapBin[x, y] = 1;
-        myMap[x, y].BackColor = Color.Black;
-      }
-      else
-      {
-
-
-
-        if (toggleVH)
-        {
-          if (ship_size == 4 &&
-
-              myMapBin[x, y] == 0 &&
-              myMapBin[x + 1, y] == 0 &&
-              myMapBin[x + 2, y] == 0 &&
-              myMapBin[x + 3, y] == 0 &&
-
-              myMapBin[x, y - 1] == 0 && myMapBin[x, y + 1] == 0 &&
-              myMapBin[x + 1, y - 1] == 0 && myMapBin[x + 1, y + 1] == 0 &&
-              myMapBin[x + 2, y - 1] == 0 && myMapBin[x + 2, y + 1] == 0 &&
-              myMapBin[x + 3, y - 1] == 0 && myMapBin[x + 3, y + 1] == 0 &&
-
-              myMapBin[x - 1, y - 1] == 0 && myMapBin[x - 1, y] == 0 && myMapBin[x - 1, y + 1] == 0 &&
-              myMapBin[x + 4, y - 1] == 0 && myMapBin[x + 4, y] == 0 && myMapBin[x + 4, y + 1] == 0)
-          {
-            for (int i = 0; i < ship_size; i++)
-            {
-              myMapBin[x + i, y] = 1;
-              myMap[x + i, y].BackColor = Color.Black;
-            }
-          }
-          else
-          if (ship_size == 3 &&
-
-              myMapBin[x, y] == 0 &&
-              myMapBin[x + 1, y] == 0 &&
-              myMapBin[x + 2, y] == 0 &&
-
-              myMapBin[x, y - 1] == 0 && myMapBin[x, y + 1] == 0 &&
-              myMapBin[x + 1, y - 1] == 0 && myMapBin[x + 1, y + 1] == 0 &&
-              myMapBin[x + 2, y - 1] == 0 && myMapBin[x + 2, y + 1] == 0 &&
-
-              myMapBin[x - 1, y - 1] == 0 && myMapBin[x - 1, y] == 0 && myMapBin[x - 1, y + 1] == 0 &&
-              myMapBin[x + 3, y - 1] == 0 && myMapBin[x + 3, y] == 0 && myMapBin[x + 3, y + 1] == 0)
-          {
-
-            for (int i = 0; i < ship_size; i++)
-            {
-              myMapBin[x + i, y] = 1;
-              myMap[x + i, y].BackColor = Color.Black;
-            }
-          }
-          else
-          if (ship_size == 2 &&
-
-            myMapBin[x, y] == 0 &&
-            myMapBin[x + 1, y] == 0 &&
-
-            myMapBin[x, y - 1] == 0 && myMapBin[x, y + 1] == 0 &&
-            myMapBin[x + 1, y - 1] == 0 && myMapBin[x + 1, y + 1] == 0 &&
-
-            myMapBin[x - 1, y - 1] == 0 && myMapBin[x - 1, y] == 0 && myMapBin[x - 1, y + 1] == 0 &&
-            myMapBin[x + 2, y - 1] == 0 && myMapBin[x + 2, y] == 0 && myMapBin[x + 2, y + 1] == 0)
-          {
-
-            for (int i = 0; i < ship_size; i++)
-            {
-              myMapBin[x + i, y] = 1;
-              myMap[x + i, y].BackColor = Color.Black;
-            }
-          }
-          else
-          {
-            canIclick = 1;
-          }
-        }
-        else
-        {
-
-          if (ship_size == 4 &&
-            myMapBin[x, y] == 0 &&
-            myMapBin[x, y + 1] == 0 &&
-            myMapBin[x, y + 2] == 0 &&
-            myMapBin[x, y + 3] == 0 &&
-
-            myMapBin[x - 1, y] == 0 && myMapBin[x + 1, y] == 0 &&
-            myMapBin[x - 1, y + 1] == 0 && myMapBin[x + 1, y + 1] == 0 &&
-            myMapBin[x - 1, y + 2] == 0 && myMapBin[x + 1, y + 2] == 0 &&
-            myMapBin[x - 1, y + 3] == 0 && myMapBin[x + 1, y + 3] == 0 &&
-
-            myMapBin[x - 1, y - 1] == 0 && myMapBin[x, y - 1] == 0 && myMapBin[x + 1, y - 1] == 0 &&
-            myMapBin[x - 1, y + 4] == 0 && myMapBin[x, y + 4] == 0 && myMapBin[x + 1, y + 4] == 0)
-          {
-            for (int i = 0; i < ship_size; i++)
-            {
-              myMapBin[x, y + i] = 1;
-              myMap[x, y + i].BackColor = Color.Black;
-            }
-          }
-          else
-          if (ship_size == 3 &&
-            myMapBin[x, y] == 0 &&
-            myMapBin[x, y + 1] == 0 &&
-            myMapBin[x, y + 2] == 0 &&
-
-            myMapBin[x - 1, y] == 0 && myMapBin[x + 1, y] == 0 &&
-            myMapBin[x - 1, y + 1] == 0 && myMapBin[x + 1, y + 1] == 0 &&
-            myMapBin[x - 1, y + 2] == 0 && myMapBin[x + 1, y + 2] == 0 &&
-
-            myMapBin[x - 1, y - 1] == 0 && myMapBin[x, y - 1] == 0 && myMapBin[x + 1, y - 1] == 0 &&
-            myMapBin[x - 1, y + 3] == 0 && myMapBin[x, y + 3] == 0 && myMapBin[x + 1, y + 3] == 0)
-          {
-
-            for (int i = 0; i < ship_size; i++)
-            {
-              myMapBin[x, y + i] = 1;
-              myMap[x, y + i].BackColor = Color.Black;
-            }
-          }
-          else
-          if (ship_size == 2 &&
-            myMapBin[x, y] == 0 &&
-            myMapBin[x, y + 1] == 0 &&
-
-            myMapBin[x - 1, y] == 0 && myMapBin[x + 1, y] == 0 &&
-            myMapBin[x - 1, y + 1] == 0 && myMapBin[x + 1, y + 1] == 0 &&
-
-            myMapBin[x - 1, y - 1] == 0 && myMapBin[x, y - 1] == 0 && myMapBin[x + 1, y - 1] == 0 &&
-            myMapBin[x - 1, y + 2] == 0 && myMapBin[x, y + 2] == 0 && myMapBin[x + 1, y + 2] == 0)
-          {
-
-            for (int i = 0; i < ship_size; i++)
-            {
-              myMapBin[x, y + i] = 1;
-              myMap[x, y + i].BackColor = Color.Black;
-            }
-          }
-          else
-          {
-            canIclick = 1;
-          }
-
-
-
-
-
-
-        }
-
-
-
-
-
-
-      }
-
-
-    }
-
-
 
     // x, y - coord, ship_size, color_name, toogleLocation, access_to_write - 読み取り専用？, enable_this_function - lock or unlock
     public void setColor(int x, int y, int ship_size, Color color_name, bool toogleLocation, bool access_to_write = false, bool enable_this_function = false)
     {
       // для случая, когда индекс выходит за границу массива
-      int acc = 1;
+      int acc = 1, count = 0;
       // иногда необходимо отключить функциональность обработчика, по умолчанию false
       if (enable_this_function)
       {
         // vertical
         if (toogleLocation)
         {
+
+          // checking
+          while (count <= ship_size)
+          {
+            if (x > 0 && x < sizeXmap - ship_size && y > 0 && y < sizeXmap - 1 && !(myMapBin[x + count, y] == 1 || myMapBin[x + count, y - 1] == 1 || myMapBin[x + count, y + 1] == 1 || myMapBin[x - 1, y - 1] == 1 || myMapBin[x - 1, y] == 1 || myMapBin[x - 1, y + 1] == 1 || myMapBin[x + ship_size, y - 1] == 1 || myMapBin[x + ship_size, y] == 1 || myMapBin[x + ship_size, y + 1] == 1))
+            {
+              count++;
+            }
+            else
+            {
+              canIclick = 1;
+              govno_govno = true;
+              return;
+
+            }
+          }
+          govno_govno = false;
+
+
+
+
           for (int i = 0; i < ship_size; i++)
           {
             // карабль поместится в поле
@@ -385,22 +232,14 @@ namespace kaisen
             {
               // если истинно то записываем координаты в другой массив
               if (access_to_write)
-              { // && myMapBin[x, y] != 0 && myMapBin[x + 1, y] != 0 && myMapBin[x + 2, y] != 0 && myMapBin[x + 3) {
+              {
+
                 myMapBin[x + i, y] = 1;
                 myMap[x + i, y].BackColor = color_name;
               }
-              // если вертикальный корабль не пересекается с другими караблями то закрашивает
-              if (myMapBin[x + i, y] == 0)
-              {
-                myMap[x + i, y].BackColor = color_name;
-              }
-              /*
-              if (myMapBin[x + i - 2, y] == 1) {
-                  myMap[x + i - 1, y - 1].BackColor = Color.Red;
-                  myMap[x + i - 1, y].BackColor = Color.Red;
-                  myMap[x + i - 1, y + 1].BackColor = Color.Red;
-              }
-              */
+              myMap[x + i, y].BackColor = color_name;
+
+
             }
             else // корабль не поместится в данное поле
             {
@@ -411,18 +250,34 @@ namespace kaisen
                 myMap[x - acc, y].BackColor = color_name;
 
               }
-              // если вертикальный корабль не пересекается с другими караблями то закрашивает
-              if (myMapBin[x - acc, y] == 0)
-              {
-                myMap[x - acc, y].BackColor = color_name;
-
-              }
+              myMap[x - acc, y].BackColor = color_name;
               acc++;
             }
           }
         }
         else
         { // horizontal
+
+
+          // checking
+          while (count <= ship_size)
+          {
+
+            if (x > 0 && x < sizeXmap - 1 && y > 0 && y < sizeYmap - ship_size && !(myMapBin[x, y + count] == 1 || myMapBin[x - 1, y + count] == 1 || myMapBin[x + 1, y + count] == 1 || myMapBin[x, y - 1] == 1 || myMapBin[x + 1, y - 1] == 1 || myMapBin[x - 1, y - 1] == 1 || myMapBin[x, y + ship_size] == 1 || myMapBin[x - 1, y + ship_size] == 1 || myMapBin[x + 1, y + ship_size] == 1))
+            {
+              count++;
+            }
+            else
+            {
+              canIclick = 1;
+              govno_govno = true;
+              return;
+            }
+
+
+          }
+          govno_govno = false;
+
           for (int i = 0; i < ship_size; i++)
           {
             // карабль поместится в поле
@@ -432,18 +287,10 @@ namespace kaisen
               if (access_to_write)
               {
                 myMapBin[x, y + i] = 1;
-                //myMap[x, y + i].Enabled = false;
                 myMap[x, y + i].BackColor = color_name;
                 enableColorButton = true;
               }
-
-
-              // если горизонтальный корабль пересекается с другими караблями то закрашивает
-              if (myMapBin[x, y + i] == 0)
-              {
-                myMap[x, y + i].BackColor = color_name;
-                enableColorButton = true;
-              }
+              myMap[x, y + i].BackColor = color_name;
 
             }
             else // корабль не поместится в данное поле
@@ -454,12 +301,7 @@ namespace kaisen
                 myMapBin[x, y - acc] = 1;
                 myMap[x, y - acc].BackColor = color_name;
               }
-              // если горизонтальный корабль пересекается с другими караблями то закрашивает
-              if (myMapBin[x, y - acc] == 0)
-              {
-                myMap[x, y - acc].BackColor = color_name;
-
-              }
+              myMap[x, y - acc].BackColor = color_name;
 
               acc++;
             }
@@ -506,6 +348,8 @@ namespace kaisen
     // button show
     private void button3_Click(object sender, EventArgs e)
     {
+
+      
       for (int i = 0; i < sizeXmap; i++)
       {
         for (int j = 0; j < sizeXmap; j++)
@@ -521,6 +365,7 @@ namespace kaisen
         }
 
       }
+      
     }
 
     // play
