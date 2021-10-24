@@ -31,12 +31,16 @@ namespace kaisen
 
     string timestamp1;
     string timestamp2;
+    string winner;
 
     public Button[,] myMap = new Button[sizeXmap, sizeYmap];
     public Button[,] enemyMap = new Button[sizeXmap, sizeYmap];
     public int[,] myMapBin = new int[sizeXmap, sizeYmap];
     public int[,] enemyMapBin = new int[sizeXmap, sizeYmap];
     public MyNewBot Bot;
+    res ans;
+
+
     char[] Alphabet = { 'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ж', 'З', 'И', 'К' };
 
     // constructor
@@ -46,9 +50,13 @@ namespace kaisen
       this.CenterToScreen();
       timer1.Interval = 10;
 
+
       //this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
       createMap();
       Bot = new MyNewBot(myMapBin, enemyMapBin, myMap, enemyMap);
+      Bot.SetName("Василий");
+      ans = new res();
+      
       enemyMapBin = Bot.ConfigureShips();
 
     }
@@ -66,6 +74,9 @@ namespace kaisen
           {
             MessageBox.Show("貴方が　負けます");
             lock_map(enemyMap);
+            winner = Bot.GetName();
+            timer1.Enabled = false;
+            ans.create_history_game("history.txt", timestamp1, timestamp1, label4.Text, label3.Text, label2.Text, winner);
             break;
           }
         }
@@ -101,6 +112,10 @@ namespace kaisen
       {
         MessageBox.Show("貴方が　勝った");
         lock_map(myMap);
+        lock_map(enemyMap);
+        winner = label1.Text.Split()[2];
+        timer1.Enabled = false;
+        ans.create_history_game("history.txt", timestamp1, timestamp1, label4.Text, label3.Text, label2.Text, winner);
       }
       return hit;
     }
@@ -700,7 +715,9 @@ namespace kaisen
       button3_Click(sender, e);
 
       timestamp2 = DateTime.Now.ToLocalTime().ToString();
-      create_history_game();
+
+      winner = Bot.GetName();
+      ans.create_history_game("history.txt", timestamp1, timestamp1, label4.Text, label3.Text, label2.Text, winner);
 
     }
 
@@ -752,24 +769,7 @@ namespace kaisen
 
     }
 
-    // create history into file
-    public void create_history_game()
-    {
-      try
-      {
-        using (FileStream fs = File.Create("history.txt"))
-        {
-          byte[] info = new UTF8Encoding(true).GetBytes(timestamp1 + " - " + timestamp2 + " - " + label4.Text + ":" + label3.Text + ":" + label2.Text);
-          fs.Write(info, 0, info.Length);
 
-        }
-      }
-      catch (Exception ex)
-      {
-        Console.WriteLine(ex.ToString());
-      }
-
-    }
 
     // lock map
     public void lock_map(Button[,] map)
