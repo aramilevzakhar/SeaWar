@@ -206,20 +206,79 @@ namespace kaisen
         {
 
           // checking
-          while (count <= ship_size)
+          if (x > 0 && x < sizeXmap - ship_size && y > 0 && y < sizeXmap - 1)
           {
-            if (x > 0 && x < sizeXmap - ship_size && y > 0 && y < sizeXmap - 1 && !(myMapBin[x + count, y] == 1 || myMapBin[x + count, y - 1] == 1 || myMapBin[x + count, y + 1] == 1 || myMapBin[x - 1, y - 1] == 1 || myMapBin[x - 1, y] == 1 || myMapBin[x - 1, y + 1] == 1 || myMapBin[x + ship_size, y - 1] == 1 || myMapBin[x + ship_size, y] == 1 || myMapBin[x + ship_size, y + 1] == 1))
+            while (count <= ship_size)
             {
-              count++;
-            }
-            else
-            {
-              canIclick = 1;
-              govno_govno = true;
-              return;
+              // Если корабль не с кем не пересекается и не стоит у самых границ
+              if (!(myMapBin[x + count, y] == 1 || myMapBin[x + count, y - 1] == 1 || myMapBin[x + count, y + 1] == 1 || myMapBin[x - 1, y - 1] == 1 || myMapBin[x - 1, y] == 1 || myMapBin[x - 1, y + 1] == 1 || myMapBin[x + ship_size, y - 1] == 1 || myMapBin[x + ship_size, y] == 1 || myMapBin[x + ship_size, y + 1] == 1))
+              {
+                count++;
+              }
+              else
+              {
+                // Иначае позволить сделать клик снова; разрешить раскрашивать позволяемое положение; и выйти из вункции setColors
+                canIclick = 1;
+                govno_govno = true;
+                return;
 
+              }
+            }
+            count = 0;
+          }
+          else if (x == 0 && y == 0)
+          {
+            while (count <= ship_size)
+            {
+              if (!(myMapBin[x + count, y] == 1 || myMapBin[x + count, y + 1] == 1 || myMapBin[x + ship_size, y] == 1 || myMapBin[x + ship_size, y + 1] == 1))
+              {
+                count++;
+              }
+              else
+              {
+                canIclick = 1;
+                govno_govno = true;
+                return;
+              }
+            }
+            count = 0;
+          }
+          else if (x > 0 && y == 0 && x < sizeXmap - ship_size - 1)
+          {
+            while (count <= ship_size)
+            {
+              if (!(myMapBin[x + count, y] == 1 || myMapBin[x + count, y + 1] == 1 || myMapBin[x - 1, y] == 1 || myMapBin[x + ship_size, y] == 1 || myMapBin[x - 1, y + 1] == 1 || myMapBin[x + ship_size, y + 1] == 1))
+              {
+                count++;
+              }
+              else
+              {
+                canIclick = 1;
+                govno_govno = true;
+                return;
+              }
+            }
+            count = 0;
+          }
+          else if (x == 0 && y > 0 && y < sizeXmap - 1)
+          {
+            while (count <= ship_size)
+            {
+              if (!(myMapBin[x + count, y] == 1 || myMapBin[x + count, y - 1] == 1 || myMapBin[x + count, y + 1] == 1 || myMapBin[x + ship_size, y] == 1 || myMapBin[x + ship_size, y - 1] == 1 || myMapBin[x + ship_size, y + 1] == 1))
+              {
+                count++;
+              }
+              else
+              {
+                canIclick = 1;
+                govno_govno = true;
+                return;
+              }
             }
           }
+          
+          
+          // в случае успеха запретить пользоваться функцией setColor
           govno_govno = false;
 
 
@@ -260,22 +319,76 @@ namespace kaisen
 
 
           // checking
-          while (count <= ship_size)
+          if (x > 0 && x < sizeXmap - 1 && y > 0 && y < sizeYmap - ship_size)
           {
-
-            if (x > 0 && x < sizeXmap - 1 && y > 0 && y < sizeYmap - ship_size && !(myMapBin[x, y + count] == 1 || myMapBin[x - 1, y + count] == 1 || myMapBin[x + 1, y + count] == 1 || myMapBin[x, y - 1] == 1 || myMapBin[x + 1, y - 1] == 1 || myMapBin[x - 1, y - 1] == 1 || myMapBin[x, y + ship_size] == 1 || myMapBin[x - 1, y + ship_size] == 1 || myMapBin[x + 1, y + ship_size] == 1))
+            while (count <= ship_size)
             {
-              count++;
-            }
-            else
-            {
-              canIclick = 1;
-              govno_govno = true;
-              return;
-            }
 
-
+              if (!(myMapBin[x, y + count] == 1 || myMapBin[x - 1, y + count] == 1 || myMapBin[x + 1, y + count] == 1 || myMapBin[x, y - 1] == 1 || myMapBin[x + 1, y - 1] == 1 || myMapBin[x - 1, y - 1] == 1 || myMapBin[x, y + ship_size] == 1 || myMapBin[x - 1, y + ship_size] == 1 || myMapBin[x + 1, y + ship_size] == 1))
+              {
+                count++;
+              }
+              else
+              {
+                canIclick = 1;
+                // эта переменная нужна чтобы после клика по месту где нельзя ставить корабль, расположение не исчезало при правильном расположении
+                govno_govno = true;
+                return;
+              }
+            }
+            count = 0;
           }
+          else if (x == 0 && y == 0)
+          {
+            while (count <= ship_size)
+            {
+              if (!(myMapBin[x, y + count] == 1 || myMapBin[x + 1, y + count] == 1 || myMapBin[x, y + ship_size] == 1 || myMapBin[x + 1, y + ship_size] == 1))
+              {
+                count++;
+              }
+              else
+              {
+                canIclick = 1;
+                govno_govno = true;
+                return;
+              }
+            }
+            count = 0;
+          }
+          else if (x == 0 && y > 0 && y < sizeYmap - ship_size - 1)
+          {
+            while (count <= ship_size)
+            {
+              if (!(myMapBin[x, y + count] == 1 || myMapBin[x + 1, y + count] == 1 || myMapBin[x, y - 1] == 1 || myMapBin[x + 1, y - 1] == 1 || myMapBin[x, y + ship_size] == 1 || myMapBin[x + 1, y + ship_size] == 1))
+              {
+                count++;
+              }
+              else
+              {
+                canIclick = 1;
+                govno_govno = true;
+                return;
+              }
+            }
+            count = 0;
+          }
+          else if (y == 0 && x > 0 && x < sizeXmap - 1)
+          {
+            while (count <= ship_size)
+            {
+              if (!(myMapBin[x, y + count] == 1 || myMapBin[x - 1, y + count] == 1 || myMapBin[x + 1, y + count] == 1 || myMapBin[x, y + ship_size] == 1 || myMapBin[x + 1, y + ship_size] == 1 || myMapBin[x - 1, y + ship_size] == 1))
+              {
+                count++;
+              }
+              else
+              {
+                canIclick = 1;
+                govno_govno = true;
+                return;
+              }
+            }
+          }
+          // в случае успеха запретить пользоваться функцией setColor
           govno_govno = false;
 
           for (int i = 0; i < ship_size; i++)
