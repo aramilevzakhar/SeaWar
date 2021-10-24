@@ -44,39 +44,31 @@ namespace kaisen
     public bool shoot()
     {
       bool hit = false;
-      if (true)
+      int posX;
+      int posY;
+
+      while (true)
       {
+        posX = r.Next(0, 10);
+        posY = r.Next(0, 10);
 
-        //Random r = new Random();
-        int posX;
-        int posY;
-
-        while (true)
-        {
-          posX = r.Next(0, 10);
-          posY = r.Next(0, 10);
-
-          if (enemyMap[posX, posY].Text != "X") break;
-        }
-
-
-
-        if (enemyMapBin[posX, posY] == 1)
-        {
-          hit = true;
-          enemyMap[posX, posY].BackColor = Color.Orange;
-          enemyMap[posX, posY].Text = "X";
-          //enemyMapBin[posX, posY] = 0;
-          numberPoints += 1;
-
-
-        }
-        else
-        {
-          enemyMap[posX, posY].BackColor = Color.LightBlue;
-          enemyMap[posX, posY].Text = "X";
-        }
+        if (enemyMap[posX, posY].Text != "X") break;
       }
+
+      if (enemyMapBin[posX, posY] == 1)
+      {
+        hit = true;
+        enemyMap[posX, posY].BackColor = Color.Orange;
+        enemyMap[posX, posY].Text = "X";
+        numberPoints += 1;
+
+      }
+      else
+      {
+        enemyMap[posX, posY].BackColor = Color.LightBlue;
+        enemyMap[posX, posY].Text = "X";
+      }
+
       return hit;
     }
 
@@ -101,18 +93,15 @@ namespace kaisen
 
     public int[,] ConfigureShips()
     {
-
       generateCoord(4);
       Thread.Sleep(30);
       
-      
       generateCoord(3);
       Thread.Sleep(30);
 
       generateCoord(3);
       Thread.Sleep(30);
 
-
       generateCoord(2);
       Thread.Sleep(30);
 
@@ -129,7 +118,6 @@ namespace kaisen
       Thread.Sleep(30);
       generateCoord(1);
       Thread.Sleep(30);
-      
 
       return myMapBin;
     }
