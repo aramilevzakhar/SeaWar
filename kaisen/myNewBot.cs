@@ -44,29 +44,29 @@ namespace kaisen
     public bool shoot()
     {
       bool hit = false;
-      int posX;
-      int posY;
+      int X;
+      int Y;
 
       while (true)
       {
-        posX = r.Next(0, 10);
-        posY = r.Next(0, 10);
+        X = r.Next(0, 10);
+        Y = r.Next(0, 10);
 
-        if (enemyMap[posX, posY].Text != "X") break;
+        if (enemyMap[X, Y].Text != "X") break;
       }
 
-      if (enemyMapBin[posX, posY] == 1)
+      if (enemyMapBin[X, Y] == 1)
       {
         hit = true;
-        enemyMap[posX, posY].BackColor = Color.Orange;
-        enemyMap[posX, posY].Text = "X";
+        enemyMap[X, Y].BackColor = Color.Orange;
+        enemyMap[X, Y].Text = "X";
         numberPoints += 1;
 
       }
       else
       {
-        enemyMap[posX, posY].BackColor = Color.LightBlue;
-        enemyMap[posX, posY].Text = "X";
+        enemyMap[X, Y].BackColor = Color.LightBlue;
+        enemyMap[X, Y].Text = "X";
       }
 
       return hit;
