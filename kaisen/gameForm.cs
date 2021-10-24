@@ -27,7 +27,7 @@ namespace kaisen
     int cellHeight = 30;
     int ship;
     int canIclick = 1;
-    int acc = 0;
+    int numberPoints = 0;
 
     string timestamp1;
     string timestamp2;
@@ -70,7 +70,7 @@ namespace kaisen
       {
         while (Bot.shoot())
         {
-          if (Bot.acc == 20)
+          if (Bot.numberPoints == 20)
           {
             MessageBox.Show("貴方が　負けます");
             lock_map(enemyMap);
@@ -99,7 +99,7 @@ namespace kaisen
         pressedButton.BackColor = Color.Orange;
         pressedButton.Text = "X";
         enemyMapBin[x, y] = 0;
-        acc += 1;
+        numberPoints += 1;
       }
       else
       {
@@ -108,7 +108,7 @@ namespace kaisen
         pressedButton.Text = "X";
       }
       pressedButton.Enabled = false;
-      if (acc == 20)
+      if (numberPoints == 20)
       {
         MessageBox.Show("貴方が　勝った");
         lock_map(myMap);
@@ -605,6 +605,9 @@ namespace kaisen
         }
       }
     }
+
+
+
     // vertical or horizontal
     private void button253_Click(object sender, EventArgs e)
     {
@@ -740,7 +743,7 @@ namespace kaisen
       }
 
       enemyMapBin = Bot.ConfigureShips();
-      acc = 0; Bot.acc = 0;
+      numberPoints = 0; Bot.numberPoints = 0;
       timer1.Enabled = false; msec = 0; sec = 0; min = 0;
 
       btoggleVH.Enabled = true;

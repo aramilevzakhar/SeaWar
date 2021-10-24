@@ -17,9 +17,11 @@ namespace kaisen
     public Button[,] enemyMap = new Button[gameForm.sizeXmap, gameForm.sizeYmap];
     public Button[,] myMap = new Button[gameForm.sizeXmap, gameForm.sizeYmap];
     Random r = new Random();
+    setPos setPosNewObj;
+
     string name;
 
-    public int acc = 0;
+    public int numberPoints  = 0;
 
     public MyNewBot(int[,] enemyMapBin, int[,] myMapBin, Button[,] enemyMap, Button[,] myMap)
     {
@@ -36,6 +38,7 @@ namespace kaisen
           this.myMapBin[i, j] = 0;
         }
       }
+      setPosNewObj = new setPos(myMapBin, myMap);
     }
 
     public bool shoot()
@@ -64,7 +67,7 @@ namespace kaisen
           enemyMap[posX, posY].BackColor = Color.Orange;
           enemyMap[posX, posY].Text = "X";
           //enemyMapBin[posX, posY] = 0;
-          acc += 1;
+          numberPoints += 1;
 
 
         }
@@ -77,78 +80,56 @@ namespace kaisen
       return hit;
     }
 
-    public void generateCoord(int length, bool toggleH)
+    public void generateCoord(int funenonagasa)
     {
-      int posX;
-      int posY;
-      bool p1 = false;
-      //Random r = new Random();
-
-
+      int x;
+      int y;
+      bool suichoku_matawa_suihei;
 
       while (true)
       {
-        if (toggleH)
-        {
-          posX = r.Next(0, gameForm.sizeXmap);
-          posY = r.Next(0, gameForm.sizeXmap - length);
-          for (int i = 0; i < length; i++)
-          {
-            if (myMapBin[posX, posY + i] == 1)
-            {
-              p1 = true;
-              break;
-            }
-          }
-          if (!p1)
-          {
-            for (int i = 0; i < length; i++)
-            {
-              myMapBin[posX, posY + i] = 1;
-            }
-          }
+        x = r.Next(0, gameForm.sizeXmap);
+        y = r.Next(0, gameForm.sizeXmap);
+        suichoku_matawa_suihei = (r.Next(0, 2) == 1) ? true : false;
+        if (setPosNewObj.CheckPos(x, y, funenonagasa, suichoku_matawa_suihei))
+          break;
 
-        }
-        else
-        {
-          posX = r.Next(0, gameForm.sizeXmap - length);
-          posY = r.Next(0, gameForm.sizeXmap);
-          for (int i = 0; i < length; i++)
-          {
-            myMapBin[posX + i, posY] = 1;
-
-          }
-        }
-        break;
       }
+
+      myMapBin = setPosNewObj.funeosetchi(x, y, funenonagasa, suichoku_matawa_suihei);
     }
 
     public int[,] ConfigureShips()
     {
-      generateCoord(4, true);
+
+      generateCoord(4);
+      Thread.Sleep(30);
+      
+      
+      generateCoord(3);
       Thread.Sleep(30);
 
-      generateCoord(3, true);
+      generateCoord(3);
       Thread.Sleep(30);
 
-      generateCoord(3, true);
+
+      generateCoord(2);
       Thread.Sleep(30);
 
-      generateCoord(2, true);
+      generateCoord(2);
       Thread.Sleep(30);
-      generateCoord(2, true);
-      Thread.Sleep(30);
-      generateCoord(2, true);
+      generateCoord(2);
       Thread.Sleep(30);
 
-      generateCoord(1, true);
+      generateCoord(1);
       Thread.Sleep(30);
-      generateCoord(1, true);
+      generateCoord(1);
       Thread.Sleep(30);
-      generateCoord(1, true);
+      generateCoord(1);
       Thread.Sleep(30);
-      generateCoord(1, true);
+      generateCoord(1);
       Thread.Sleep(30);
+      
 
       return myMapBin;
     }
