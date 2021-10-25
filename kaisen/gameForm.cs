@@ -255,8 +255,6 @@ namespace kaisen {
     // vertical or horizontal
     private void button253_Click(object sender, EventArgs e) {
       Button button = sender as Button;
-      //MessageBox.Show(e.ToString());
-      //System.Windows.Forms.MessageBox.Show("hell");
       if (toogle_v_h) {
         button.Text = "H";
         toogle_v_h = false;
