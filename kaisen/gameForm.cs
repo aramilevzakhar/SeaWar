@@ -168,7 +168,7 @@ namespace kaisen {
       int y = (button.Location.X - 10) / 30;
       int x = (button.Location.Y - 10) / 30;
 
-      unsel(x, y, lockPreview);
+      sel(x, y, lockPreview, true);
       colors.Clear();
 
     }
@@ -187,7 +187,7 @@ namespace kaisen {
 
     }
 
-    public void sel(int x, int y, bool lockPreview=true) {
+    public void sel(int x, int y, bool lockPreview=true, bool unsel=false) {
       int acc = 1;
       Color color;
 
@@ -202,14 +202,23 @@ namespace kaisen {
         if (toogle_v_h) {
           for (int i = 0; i < ship; i++) {
             if (x + i < sizeXmap) {
-              colors.Add(myMap[x + i, y].BackColor);
-              myMap[x + i, y].BackColor = color;
+              if (!unsel) {
+                colors.Add(myMap[x + i, y].BackColor);
+                myMap[x + i, y].BackColor = color;
+              } else {
+                myMap[x + i, y].BackColor = colors[i];
+              }
 
 
             } else {
-              colors.Add(myMap[x - acc, y].BackColor);
-              myMap[x - acc, y].BackColor = color;
-              acc++;
+              if (!unsel) {
+                colors.Add(myMap[x - acc, y].BackColor);
+                myMap[x - acc, y].BackColor = color;
+                acc++;
+              } else {
+                myMap[x - acc, y].BackColor = colors[i];
+                acc++;
+              }
             }
 
           }
@@ -217,12 +226,21 @@ namespace kaisen {
         } else {
           for (int i = 0; i < ship; i++) {
             if (y + i < sizeXmap) {
-              colors.Add(myMap[x, y + i].BackColor);
-              myMap[x, y + i].BackColor = color;
+              if (!unsel) {
+                colors.Add(myMap[x, y + i].BackColor);
+                myMap[x, y + i].BackColor = color;
+              } else {
+                myMap[x, y + i].BackColor = colors[i];
+              }
             } else {
-              colors.Add(myMap[x, y - acc].BackColor);
-              myMap[x, y - acc].BackColor = color;
-              acc++;
+              if (!unsel) {
+                colors.Add(myMap[x, y - acc].BackColor);
+                myMap[x, y - acc].BackColor = color;
+                acc++;
+              } else {
+                myMap[x, y - acc].BackColor = colors[i];
+                acc++;
+              }
 
             }
           }
@@ -231,37 +249,6 @@ namespace kaisen {
 
 
 
-      }
-    }
-
-    public void unsel(int x, int y, bool lockPreview=true) {
-      int acc = 1;
-
-
-      if (lockPreview) {
-        if (toogle_v_h) {
-          for (int i = 0; i < ship; i++) {
-            if (x + i < sizeXmap) {
-              myMap[x + i, y].BackColor = colors[i];
-
-            } else {
-              myMap[x - acc, y].BackColor = colors[i];
-              acc++;
-            }
-
-          }
-
-        } else {
-          for (int i = 0; i < ship; i++) {
-            if (y + i < sizeXmap) {
-              myMap[x, y + i].BackColor = colors[i];
-            } else {
-              myMap[x, y - acc].BackColor = colors[i];
-              acc++;
-
-            }
-          }
-        }
       }
     }
 
