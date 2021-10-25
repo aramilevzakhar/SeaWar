@@ -54,7 +54,7 @@
       // 
       // bship23
       // 
-      this.bship23.BackColor = System.Drawing.Color.Lime;
+      this.bship23.BackColor = System.Drawing.SystemColors.ControlDark;
       this.bship23.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
       this.bship23.ForeColor = System.Drawing.SystemColors.WindowFrame;
       this.bship23.Location = new System.Drawing.Point(189, 361);
@@ -67,7 +67,7 @@
       // 
       // bship22
       // 
-      this.bship22.BackColor = System.Drawing.Color.Lime;
+      this.bship22.BackColor = System.Drawing.SystemColors.ControlDark;
       this.bship22.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
       this.bship22.ForeColor = System.Drawing.SystemColors.WindowFrame;
       this.bship22.Location = new System.Drawing.Point(159, 361);
@@ -80,7 +80,7 @@
       // 
       // bship21
       // 
-      this.bship21.BackColor = System.Drawing.Color.Lime;
+      this.bship21.BackColor = System.Drawing.SystemColors.ControlDark;
       this.bship21.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
       this.bship21.ForeColor = System.Drawing.SystemColors.WindowFrame;
       this.bship21.Location = new System.Drawing.Point(129, 361);
@@ -93,7 +93,7 @@
       // 
       // bship11
       // 
-      this.bship11.BackColor = System.Drawing.Color.Lime;
+      this.bship11.BackColor = System.Drawing.SystemColors.ControlDark;
       this.bship11.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
       this.bship11.FlatAppearance.BorderSize = 5;
       this.bship11.ForeColor = System.Drawing.SystemColors.WindowFrame;
@@ -107,7 +107,7 @@
       // 
       // bship32
       // 
-      this.bship32.BackColor = System.Drawing.Color.Lime;
+      this.bship32.BackColor = System.Drawing.SystemColors.ControlDark;
       this.bship32.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
       this.bship32.ForeColor = System.Drawing.SystemColors.WindowFrame;
       this.bship32.Location = new System.Drawing.Point(99, 361);
@@ -120,7 +120,7 @@
       // 
       // bship31
       // 
-      this.bship31.BackColor = System.Drawing.Color.Lime;
+      this.bship31.BackColor = System.Drawing.SystemColors.ControlDark;
       this.bship31.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
       this.bship31.ForeColor = System.Drawing.SystemColors.WindowFrame;
       this.bship31.Location = new System.Drawing.Point(69, 361);
@@ -133,7 +133,7 @@
       // 
       // bship12
       // 
-      this.bship12.BackColor = System.Drawing.Color.Lime;
+      this.bship12.BackColor = System.Drawing.SystemColors.ControlDark;
       this.bship12.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
       this.bship12.ForeColor = System.Drawing.SystemColors.WindowFrame;
       this.bship12.Location = new System.Drawing.Point(249, 361);
@@ -146,7 +146,7 @@
       // 
       // bship41
       // 
-      this.bship41.BackColor = System.Drawing.Color.Lime;
+      this.bship41.BackColor = System.Drawing.SystemColors.ControlDark;
       this.bship41.FlatAppearance.BorderColor = System.Drawing.Color.PaleGreen;
       this.bship41.FlatAppearance.BorderSize = 4;
       this.bship41.ForeColor = System.Drawing.SystemColors.WindowFrame;
@@ -160,7 +160,7 @@
       // 
       // bship13
       // 
-      this.bship13.BackColor = System.Drawing.Color.Lime;
+      this.bship13.BackColor = System.Drawing.SystemColors.ControlDark;
       this.bship13.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
       this.bship13.ForeColor = System.Drawing.SystemColors.WindowFrame;
       this.bship13.Location = new System.Drawing.Point(279, 361);
@@ -173,7 +173,7 @@
       // 
       // bship14
       // 
-      this.bship14.BackColor = System.Drawing.Color.Lime;
+      this.bship14.BackColor = System.Drawing.SystemColors.ControlDark;
       this.bship14.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
       this.bship14.ForeColor = System.Drawing.SystemColors.WindowFrame;
       this.bship14.Location = new System.Drawing.Point(309, 361);
@@ -186,16 +186,15 @@
       // 
       // btoggleVH
       // 
-      this.btoggleVH.BackColor = System.Drawing.Color.Lime;
+      this.btoggleVH.BackColor = System.Drawing.SystemColors.ControlDark;
       this.btoggleVH.FlatAppearance.BorderSize = 5;
-      this.btoggleVH.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.btoggleVH.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
       this.btoggleVH.ForeColor = System.Drawing.SystemColors.WindowFrame;
       this.btoggleVH.Location = new System.Drawing.Point(9, 361);
       this.btoggleVH.Name = "btoggleVH";
       this.btoggleVH.Size = new System.Drawing.Size(30, 29);
       this.btoggleVH.TabIndex = 0;
-      this.btoggleVH.Text = "--";
-      this.btoggleVH.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+      this.btoggleVH.Text = "H";
       this.btoggleVH.UseVisualStyleBackColor = false;
       this.btoggleVH.Click += new System.EventHandler(this.button253_Click);
       // 
@@ -339,7 +338,7 @@
       this.ForeColor = System.Drawing.SystemColors.ActiveBorder;
       this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
       this.Name = "gameForm";
-      this.Text = "Form1";
+      this.Text = "Морской бой";
       this.ResumeLayout(false);
       this.PerformLayout();
 

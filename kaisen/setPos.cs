@@ -315,9 +315,10 @@ namespace kaisen
     }
 
 
-    public int[,] funeosetchi(int x, int y, int funenonagasaki, bool suichoku_matawa_suihei)
+    public int[,] funeosetchi(int x, int y, int funenonagasaki, bool suichoku_matawa_suihei, bool is_color=false)
     {
       int acc = 1;
+      Color color = Color.Black;
       if (suichoku_matawa_suihei)
       {
 
@@ -325,12 +326,15 @@ namespace kaisen
         {
           if (x + i < sizeXmap)
           {
+            if (is_color) map[x + i, y].BackColor = color;
             map_b[x + i, y] = 1;
           }
           else
           {
+            if (is_color) map[x - acc, y].BackColor = color;
             map_b[x - acc, y] = 1;
             acc++;
+            
           }
         }
       }
@@ -340,10 +344,12 @@ namespace kaisen
         {
           if (y + i < sizeXmap)
           {
+            if (is_color) map[x, y + i].BackColor = color;
             map_b[x, y + i] = 1;
           }
           else 
           {
+            if (is_color) map[x, y - acc].BackColor = color;
             map_b[x, y - acc] = 1;
             acc++;
           }

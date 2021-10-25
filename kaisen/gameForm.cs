@@ -10,17 +10,14 @@ using System.Windows.Forms;
 using System.Threading;
 using System.IO;
 
-namespace kaisen
-{
-  public partial class gameForm :Form
-  {
+namespace kaisen {
+  public partial class gameForm :Form {
     int min = 0, sec = 0, msec = 0;
     bool toogle_v_h = false;
     bool enableColorButton = true;
     public const int sizeXmap = 10;
     public const int sizeYmap = 10;
 
-    bool govno_govno = true;
     int posX = 10;
     int posY = 10;
     int cellWidth = 30;
@@ -28,6 +25,7 @@ namespace kaisen
     int ship;
     int canIclick = 1;
     int numberPoints = 0;
+    bool lockPreview = false;
 
     string timestamp1;
     string timestamp2;
@@ -39,42 +37,40 @@ namespace kaisen
     public int[,] enemyMapBin = new int[sizeXmap, sizeYmap];
     public MyNewBot Bot;
     res ans;
+    setPos check_pos;
+    List<Color> colors = new List<Color>() { };
+
 
 
     char[] Alphabet = { 'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ж', 'З', 'И', 'К' };
 
     // constructor
-    public gameForm()
-    {
+    public gameForm() {
       InitializeComponent();
       this.CenterToScreen();
       timer1.Interval = 10;
 
-
-      //this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
       createMap();
       Bot = new MyNewBot(myMapBin, enemyMapBin, myMap, enemyMap);
       Bot.SetName("Василий");
       ans = new res();
-      
+
+
+      check_pos = new setPos(myMapBin, myMap);
       enemyMapBin = Bot.ConfigureShips();
 
     }
 
     // player shoot
-    public void player_shoot(object sender, EventArgs e)
-    {
+    public void player_shoot(object sender, EventArgs e) {
       Button button = sender as Button;
 
-      if (!shoot(enemyMapBin, button))
-      {
-        while (Bot.shoot())
-        {
-          if (Bot.numberPoints == 20)
-          {
-            MessageBox.Show("貴方が　負けます");
+      if (!shoot(enemyMapBin, button)) {
+        while (Bot.shoot()) {
+          if (Bot.numberPoints == 20) {          
             lock_map(enemyMap);
             winner = Bot.GetName();
+            MessageBox.Show(string.Format("{0} победил!", winner));
             timer1.Enabled = false;
             ans.create_history_game("history.txt", timestamp1, timestamp1, label4.Text, label3.Text, label2.Text, winner);
             break;
@@ -86,34 +82,30 @@ namespace kaisen
     }
 
     // shoot
-    public bool shoot(int[,] map, Button pressedButton)
-    {
+    public bool shoot(int[,] map, Button pressedButton) {
       bool hit = false;
       int x, y;
       y = (pressedButton.Location.X - 10 - 330) / 30;
       x = (pressedButton.Location.Y - 10) / 30;
 
-      if (map[x, y] == 1)
-      {
+      if (map[x, y] == 1) {
         hit = true;
         pressedButton.BackColor = Color.Orange;
         pressedButton.Text = "X";
         enemyMapBin[x, y] = 0;
         numberPoints += 1;
-      }
-      else
-      {
+      } else {
         hit = false;
         pressedButton.BackColor = Color.LightBlue;
         pressedButton.Text = "X";
       }
       pressedButton.Enabled = false;
-      if (numberPoints == 20)
-      {
-        MessageBox.Show("貴方が　勝った");
+      if (numberPoints == 20) {
+        
         lock_map(myMap);
         lock_map(enemyMap);
-        winner = label1.Text.Split()[2];
+        winner = label1.Text.Split()[0];
+        MessageBox.Show(string.Format("Игрок {0} победил", winner));
         timer1.Enabled = false;
         ans.create_history_game("history.txt", timestamp1, timestamp1, label4.Text, label3.Text, label2.Text, winner);
       }
@@ -121,14 +113,11 @@ namespace kaisen
     }
 
     // createMap
-    public void createMap()
-    {
+    public void createMap() {
       //this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
       this.Width = 330 * 2 + 40 + 20;
-      for (int i = 0; i < sizeXmap; i++)
-      {
-        for (int j = 0; j < sizeYmap; j++)
-        {
+      for (int i = 0; i < sizeXmap; i++) {
+        for (int j = 0; j < sizeYmap; j++) {
           // две карты состоящих из кнопок
           myMap[i, j] = new Button();
           enemyMap[i, j] = new Button();
@@ -165,517 +154,170 @@ namespace kaisen
     }
 
     // hower into temporaryRedZone
-    public void hover_temporaryRedZone(object sender, EventArgs e)
-    {
+    public void hover_temporaryRedZone(object sender, EventArgs e) {
       Button button = sender as Button;
       int y = (button.Location.X - 10) / 30;
       int x = (button.Location.Y - 10) / 30;
-      //int tmp1 = 1;
-      setColor(x, y, ship, Color.Lime, toogle_v_h, false, enableColorButton);
 
+      sel(x, y, lockPreview);
     }
 
     // leave into temporaryRedZone
-    public void leave_temporaryRedZone(object sender, EventArgs e)
-    {
+    public void leave_temporaryRedZone(object sender, EventArgs e) {
       Button button = sender as Button;
       int y = (button.Location.X - 10) / 30;
       int x = (button.Location.Y - 10) / 30;
 
-      setColor(x, y, ship, Color.White, toogle_v_h, false, enableColorButton);
+      unsel(x, y, lockPreview);
+      colors.Clear();
 
     }
 
     // click to button
-    public void set_pos(object sender, EventArgs e)
-    {
+    public void set_pos(object sender, EventArgs e) {
       Button button = sender as Button;
       int y = (button.Location.X - 10) / 30;
       int x = (button.Location.Y - 10) / 30;
 
-      // 1 - yes
-      // 2 - no
-      if (canIclick == 1)
-      {
+      if (check_pos.CheckPos(x, y, ship, toogle_v_h) && canIclick == 1) {
+        check_pos.funeosetchi(x, y, ship, toogle_v_h, true);
         canIclick = 2;
-        setColor(x, y, ship, Color.Black, toogle_v_h, true, true);
-        // myMap[x, y].AutoSiz;
-        
-        //setPosShips(x, y, ship, toogle_v_h);
-        enableColorButton = govno_govno;
-
+        lockPreview = false;
       }
 
     }
 
-    // x, y - coord, ship_size, color_name, toogleLocation, access_to_write - 読み取り専用？, enable_this_function - lock or unlock
-    public void setColor(int x, int y, int ship_size, Color color_name, bool toogleLocation, bool access_to_write = false, bool enable_this_function = false)
-    {
-      // для случая, когда индекс выходит за границу массива
-      int acc = 1, count = 0;
-      // иногда необходимо отключить функциональность обработчика, по умолчанию false, чтобы не выполнеялась после успешного расположения кораябля
-      if (enable_this_function)
-      {
-        // vertical
-        if (toogleLocation)
-        {
+    public void sel(int x, int y, bool lockPreview=true) {
+      int acc = 1;
+      Color color;
 
-          // checking
-          if (x > 0 && x < sizeXmap - ship_size && y > 0 && y < sizeXmap - 1)
-          {
-            while (count <= ship_size)
-            {
-              // Если корабль не с кем не пересекается и не стоит у самых границ
-              if (!(myMapBin[x + count, y] == 1 || myMapBin[x + count, y - 1] == 1 || myMapBin[x + count, y + 1] == 1 || myMapBin[x - 1, y - 1] == 1 || myMapBin[x - 1, y] == 1 || myMapBin[x - 1, y + 1] == 1 || myMapBin[x + ship_size, y - 1] == 1 || myMapBin[x + ship_size, y] == 1 || myMapBin[x + ship_size, y + 1] == 1))
-              {
-                count++;
-              }
-              else
-              {
-                // Иначае позволить сделать клик снова; разрешить раскрашивать позволяемое положение; и выйти из вункции setColors
-                canIclick = 1;
-                govno_govno = true;
-                return;
-
-              }
-            }
-            count = 0;
-          }
-          else if (x == 0 && y == 0)
-          {
-            while (count <= ship_size)
-            {
-              if (!(myMapBin[x + count, y] == 1 || myMapBin[x + count, y + 1] == 1 || myMapBin[x + ship_size, y] == 1 || myMapBin[x + ship_size, y + 1] == 1))
-              {
-                count++;
-              }
-              else
-              {
-                canIclick = 1;
-                govno_govno = true;
-                return;
-              }
-            }
-            count = 0;
-          }
-          else if (x > 0 && y == 0 && x < sizeXmap - ship_size)
-          {
-            while (count <= ship_size)
-            {
-              if (!(myMapBin[x + count, y] == 1 || myMapBin[x + count, y + 1] == 1 || myMapBin[x - 1, y] == 1 || myMapBin[x + ship_size, y] == 1 || myMapBin[x - 1, y + 1] == 1 || myMapBin[x + ship_size, y + 1] == 1))
-              {
-                count++;
-              }
-              else
-              {
-                canIclick = 1;
-                govno_govno = true;
-                return;
-              }
-            }
-            count = 0;
-          }
-          else if (x == 0 && y > 0 && y < sizeXmap - 1)
-          {
-            while (count <= ship_size)
-            {
-              if (!(myMapBin[x + count, y] == 1 || myMapBin[x + count, y - 1] == 1 || myMapBin[x + count, y + 1] == 1 || myMapBin[x + ship_size, y] == 1 || myMapBin[x + ship_size, y - 1] == 1 || myMapBin[x + ship_size, y + 1] == 1))
-              {
-                count++;
-              }
-              else
-              {
-                canIclick = 1;
-                govno_govno = true;
-                return;
-              }
-            }
-          }
-          else if (x >= sizeXmap - ship_size && y > 0 && y < sizeXmap - 1)
-          {
-            x = sizeXmap - ship_size;
-            while (count < ship_size)
-            {
-              if (!(myMapBin[x + count, y] == 1 || myMapBin[x + count, y - 1] == 1 || myMapBin[x + count, y + 1] == 1 || myMapBin[x - 1, y] == 1 || myMapBin[x - 1, y - 1] == 1 || myMapBin[x - 1, y + 1] == 1))
-              {
-                count += 1;
-              }
-              else
-              {
-                canIclick = 1;
-                govno_govno = true;
-                return;
-              }
-            }
-
-            //MessageBox.Show("x");
-          }
-          else if (x >= sizeXmap - ship_size && y == 0)
-          {
-            x = sizeXmap - ship_size;
-            while (count < ship_size)
-            {
-              if (!(myMapBin[x + count, y] == 1 || myMapBin[x + count, y + 1] == 1 || myMapBin[x - 1, y] == 1 || myMapBin[x - 1, y + 1] == 1))
-              {
-                count++;
-              }
-              else
-              {
-                canIclick = 1;
-                govno_govno = true;
-                return;
-              }
-            }
-          }
-          else if (x >= sizeXmap - ship_size && y == sizeXmap - 1)
-          {
-            x = sizeXmap - ship_size;
-            while (count < ship_size)
-            {
-              if (!(myMapBin[x + count, y] == 1 || myMapBin[x + count, y - 1] == 1 || myMapBin[x - 1, y] == 1 || myMapBin[x - 1, y - 1] == 1))
-              {
-                count++;
-              }
-              else
-              {
-                canIclick = 1;
-                govno_govno = true;
-                return;
-              }
-            }
-          }
-          else if (x > 0 && y == sizeXmap - 1 && x < sizeXmap - ship_size)
-          {
-            //x = sizeXmap - ship_size;
-            while (count <= ship_size)
-            {
-              if (!(myMapBin[x + count, y] == 1 || myMapBin[x + count, y - 1] == 1 || myMapBin[x - 1, y] == 1 || myMapBin[x - 1, y - 1] == 1))
-              {
-                count++;
-              }
-              else
-              {
-                canIclick = 1;
-                govno_govno = true;
-                return;
-              }
-            }
-          }
-          else if (x == 0 && y == sizeXmap - 1)
-          {
-            //x = sizeXmap - ship_size;
-            while (count <= ship_size)
-            {
-              if (!(myMapBin[x + count, y] == 1 || myMapBin[x + count, y - 1] == 1))
-              {
-                count++;
-              }
-              else
-              {
-                canIclick = 1;
-                govno_govno = true;
-                return;
-              }
-            }
-          }
-
-          // в случае успеха запретить пользоваться функцией setColor
-          // пользователь правлильно расположил корабль этой переменной присвоится значение false кораблик зарисуется на интовой матрице и на кнопочной матрице
-          // и после отрисовки зеленый цвет не будет работать. Эта переменная если принимает значение false позволяет отображать зелёный цвет после неудачной попытки расположить корабль
-
-          govno_govno = false;
-
-          for (int i = 0; i < ship_size; i++)
-          {
-            // карабль поместится в поле
-            if (x + i < sizeXmap)
-            {
-              // если истинно то записываем координаты в другой массив
-              if (access_to_write)
-              {
-
-                myMapBin[x + i, y] = 1;
-                myMap[x + i, y].BackColor = color_name;
-              }
-              myMap[x + i, y].BackColor = color_name;
-
-
-            }
-            else // корабль не поместится в данное поле
-            {
-              // если истинно то записываем координаты в другой массив
-              if (access_to_write)
-              {
-                myMapBin[x - acc, y] = 1;
-                myMap[x - acc, y].BackColor = color_name;
-
-              }
-              myMap[x - acc, y].BackColor = color_name;
-              acc++;
-            }
-          }
-        }
+      if (lockPreview) {
+        if (check_pos.CheckPos(x, y, ship, toogle_v_h))
+          color = Color.Lime;
         else
-        { // horizontal
+          color = Color.Orange;
 
-          // checking
-          if (x > 0 && x < sizeXmap - 1 && y > 0 && y < sizeYmap - ship_size)
-          {
-            while (count <= ship_size)
-            {
 
-              if (!(myMapBin[x, y + count] == 1 || myMapBin[x - 1, y + count] == 1 || myMapBin[x + 1, y + count] == 1 || myMapBin[x, y - 1] == 1 || myMapBin[x + 1, y - 1] == 1 || myMapBin[x - 1, y - 1] == 1 || myMapBin[x, y + ship_size] == 1 || myMapBin[x - 1, y + ship_size] == 1 || myMapBin[x + 1, y + ship_size] == 1))
-              {
-                count++;
-              }
-              else
-              {
-                canIclick = 1;
-                // эта переменная нужна чтобы после клика по месту где нельзя ставить корабль, расположение не исчезало при правильном расположении
-                govno_govno = true;
-                return;
-              }
-            }
-            count = 0;
-          }
-          else if (x == 0 && y == 0)
-          {
-            while (count <= ship_size)
-            {
-              if (!(myMapBin[x, y + count] == 1 || myMapBin[x + 1, y + count] == 1 || myMapBin[x, y + ship_size] == 1 || myMapBin[x + 1, y + ship_size] == 1))
-              {
-                count++;
-              }
-              else
-              {
-                canIclick = 1;
-                govno_govno = true;
-                return;
-              }
-            }
-            count = 0;
-          }
-          else if (x == 0 && y > 0 && y < sizeYmap - ship_size)
-          {
-            while (count <= ship_size)
-            {
-              if (!(myMapBin[x, y + count] == 1 || myMapBin[x + 1, y + count] == 1 || myMapBin[x, y - 1] == 1 || myMapBin[x + 1, y - 1] == 1 || myMapBin[x, y + ship_size] == 1 || myMapBin[x + 1, y + ship_size] == 1))
-              {
-                count++;
-              }
-              else
-              {
-                canIclick = 1;
-                govno_govno = true;
-                return;
-              }
-            }
-            count = 0;
-          }
-          else if (y == 0 && x > 0 && x < sizeXmap - 1)
-          {
-            while (count <= ship_size)
-            {
-              if (!(myMapBin[x, y + count] == 1 || myMapBin[x - 1, y + count] == 1 || myMapBin[x + 1, y + count] == 1 || myMapBin[x, y + ship_size] == 1 || myMapBin[x + 1, y + ship_size] == 1 || myMapBin[x - 1, y + ship_size] == 1))
-              {
-                count++;
-              }
-              else
-              {
-                canIclick = 1;
-                govno_govno = true;
-                return;
-              }
-            }
-          }
-          else if (y == 0 && x == sizeXmap - 1)
-          {
-            while (count <= ship_size)
-            {
-              if (!(myMapBin[x, y + count] == 1 || myMapBin[x - 1, y + count] == 1))
-              {
-                count++;
-              }
-              else
-              {
-                canIclick = 1;
-                govno_govno = true;
-                return;
-              }
-            }
-          }
-          else if (y > 0 && x == sizeXmap - 1 && y < sizeXmap - ship_size)
-          {
-            while (count <= ship_size)
-            {
-              if (!(myMapBin[x, y + count] == 1 || myMapBin[x - 1, y + count] == 1 || myMapBin[x, y - 1] == 1 || myMapBin[x - 1, y - 1] == 1))
-              {
-                count++;
-              }
-              else
-              {
-                canIclick = 1;
-                govno_govno = true;
-                return;
-              }
-            }
-          }
-          else if (y >= sizeXmap - ship_size && x == sizeXmap - 1)
-          {
-            y = sizeXmap - ship_size;
-            while (count < ship_size)
-            {
-              if (!(myMapBin[x, y + count] == 1 || myMapBin[x - 1, y + count] == 1 || myMapBin[x, y - 1] == 1 || myMapBin[x - 1, y - 1] == 1))
-              {
-                count++;
-              }
-              else
-              {
-                canIclick = 1;
-                govno_govno = true;
-                return;
-              }
-            }
-          }
-          else if (y >= sizeXmap - ship_size && x > 0 && x < sizeXmap - 1)
-          {
-            y = sizeXmap - ship_size;
-            while (count <= ship_size)
-            {
-              if (!(myMapBin[x, y + count - 1] == 1 || myMapBin[x - 1, y + count - 1] == 1 || myMapBin[x + 1, y + count- 1] == 1))
-              {
-                count++;
-              }
-              else
-              {
-                canIclick = 1;
-                govno_govno = true;
-                return;
-              }
-            }
-          }
-          else if (y >= sizeXmap - ship_size && x == 0)
-          {
-            y = sizeXmap - ship_size;
-            while (count <= ship_size)
-            {
-              if (!(myMapBin[x, y + count - 1] == 1 || myMapBin[x + 1, y + count - 1] == 1))
-              {
-                count++;
-              }
-              else
-              {
-                canIclick = 1;
-                govno_govno = true;
-                return;
-              }
-            }
-          }
-          // в случае успеха запретить пользоваться функцией setColor
-          govno_govno = false;
 
-          for (int i = 0; i < ship_size; i++)
-          {
-            // карабль поместится в поле
-            if (y + i < sizeXmap)
-            {
-              // если кликаем то записываем координаты в другой массив
-              if (access_to_write)
-              {
-                myMapBin[x, y + i] = 1;
-                myMap[x, y + i].BackColor = color_name;
-                enableColorButton = true;
-              }
-              myMap[x, y + i].BackColor = color_name;
+        if (toogle_v_h) {
+          for (int i = 0; i < ship; i++) {
+            if (x + i < sizeXmap) {
+              colors.Add(myMap[x + i, y].BackColor);
+              myMap[x + i, y].BackColor = color;
 
-            }
-            else // корабль не поместится в данное поле
-            {
-              // если кликаем то записываем координаты в другой массив
-              if (access_to_write)
-              {
-                myMapBin[x, y - acc] = 1;
-                myMap[x, y - acc].BackColor = color_name;
-              }
-              myMap[x, y - acc].BackColor = color_name;
 
+            } else {
+              colors.Add(myMap[x - acc, y].BackColor);
+              myMap[x - acc, y].BackColor = color;
               acc++;
+            }
+
+          }
+
+        } else {
+          for (int i = 0; i < ship; i++) {
+            if (y + i < sizeXmap) {
+              colors.Add(myMap[x, y + i].BackColor);
+              myMap[x, y + i].BackColor = color;
+            } else {
+              colors.Add(myMap[x, y - acc].BackColor);
+              myMap[x, y - acc].BackColor = color;
+              acc++;
+
+            }
+          }
+        }
+
+
+
+
+      }
+    }
+
+    public void unsel(int x, int y, bool lockPreview=true) {
+      int acc = 1;
+
+
+      if (lockPreview) {
+        if (toogle_v_h) {
+          for (int i = 0; i < ship; i++) {
+            if (x + i < sizeXmap) {
+              myMap[x + i, y].BackColor = colors[i];
+
+            } else {
+              myMap[x - acc, y].BackColor = colors[i];
+              acc++;
+            }
+
+          }
+
+        } else {
+          for (int i = 0; i < ship; i++) {
+            if (y + i < sizeXmap) {
+              myMap[x, y + i].BackColor = colors[i];
+            } else {
+              myMap[x, y - acc].BackColor = colors[i];
+              acc++;
+
             }
           }
         }
       }
     }
-
-
 
     // vertical or horizontal
-    private void button253_Click(object sender, EventArgs e)
-    {
+    private void button253_Click(object sender, EventArgs e) {
       Button button = sender as Button;
       //MessageBox.Show(e.ToString());
       //System.Windows.Forms.MessageBox.Show("hell");
-      if (toogle_v_h)
-      {
-        button.Text = "--";
+      if (toogle_v_h) {
+        button.Text = "H";
         toogle_v_h = false;
-      }
-      else
-      {
-        button.Text = "|";
+      } else {
+        button.Text = "V";
         toogle_v_h = true;
       }
     }
 
     // bottom panel of button for setting ships
-    private void button252_Click(object sender, EventArgs e)
-    {
+    private void button252_Click(object sender, EventArgs e) {
       Button button = sender as Button;
       button.Enabled = false;
-      button.BackColor = SystemColors.Control;
       ship = Convert.ToInt16(button.Text);
       canIclick = 1;
-      enableColorButton = true;
+      lockPreview = true;
 
     }
 
     // exit
-    private void button2_Click(object sender, EventArgs e)
-    {
+    private void button2_Click(object sender, EventArgs e) {
       Environment.Exit(0);
     }
 
     // button show
-    private void button3_Click(object sender, EventArgs e)
-    {
+    private void button3_Click(object sender, EventArgs e) {
 
-      
-      for (int i = 0; i < sizeXmap; i++)
-      {
-        for (int j = 0; j < sizeXmap; j++)
-        {
-          if (myMapBin[i, j] == 1)
-          {
+
+      for (int i = 0; i < sizeXmap; i++) {
+        for (int j = 0; j < sizeXmap; j++) {
+          if (myMapBin[i, j] == 1) {
             myMap[i, j].BackColor = Color.Black;
           }
-          if (enemyMapBin[i, j] == 1)
-          {
+          if (enemyMapBin[i, j] == 1) {
             enemyMap[i, j].BackColor = Color.Black;
           }
         }
 
       }
-      
+
     }
 
     // play
-    private void buttonPlay_Click(object sender, EventArgs e)
-    {
+    private void buttonPlay_Click(object sender, EventArgs e) {
       timer1.Enabled = true;
       timestamp1 = DateTime.Now.ToLocalTime().ToString();
-      for (int i = 0; i < sizeXmap; i++)
-      {
-        for (int j = 0; j < sizeYmap; j++)
-        {
+      for (int i = 0; i < sizeXmap; i++) {
+        for (int j = 0; j < sizeYmap; j++) {
           myMap[i, j].Enabled = false;
           enemyMap[i, j].Enabled = true;
 
@@ -684,20 +326,15 @@ namespace kaisen
     }
 
     // timer label4 : label3 : label2
-    private void timer1_Tick(object sender, EventArgs e)
-    {
+    private void timer1_Tick(object sender, EventArgs e) {
 
-      if (msec == 99)
-      {
-        if (sec == 59)
-        {
+      if (msec == 99) {
+        if (sec == 59) {
           if (min == 59) min = 0; else min++;
           sec = 0;
-        }
-        else sec++;
+        } else sec++;
         msec = 0;
-      }
-      else msec++; // Форматируем надписи табло: 
+      } else msec++; // Форматируем надписи табло: 
 
       if (min.ToString().Length == 1) label4.Text = "0" + min.ToString();
       else label4.Text = min.ToString();
@@ -711,8 +348,7 @@ namespace kaisen
     }
 
     // surrender
-    private void button4_Click(object sender, EventArgs e)
-    {
+    private void button4_Click(object sender, EventArgs e) {
       timer1.Enabled = false;
       lock_map(enemyMap);
       button3_Click(sender, e);
@@ -725,12 +361,9 @@ namespace kaisen
     }
 
     // clear
-    private void button1_Click_1(object sender, EventArgs e)
-    {
-      for (int i = 0; i < sizeXmap; i++)
-      {
-        for (int j = 0; j < sizeYmap; j++)
-        {
+    private void button1_Click_1(object sender, EventArgs e) {
+      for (int i = 0; i < sizeXmap; i++) {
+        for (int j = 0; j < sizeYmap; j++) {
           myMapBin[i, j] = 0;
           enemyMapBin[i, j] = 0;
           myMap[i, j].BackColor = Color.White;
@@ -757,30 +390,14 @@ namespace kaisen
       bship12.Enabled = true;
       bship13.Enabled = true;
       bship14.Enabled = true;
-
-      btoggleVH.BackColor = Color.Lime;
-      bship41.BackColor = Color.Lime;
-      bship31.BackColor = Color.Lime;
-      bship32.BackColor = Color.Lime;
-      bship21.BackColor = Color.Lime;
-      bship22.BackColor = Color.Lime;
-      bship23.BackColor = Color.Lime;
-      bship11.BackColor = Color.Lime;
-      bship12.BackColor = Color.Lime;
-      bship13.BackColor = Color.Lime;
-      bship14.BackColor = Color.Lime;
-
     }
 
 
 
     // lock map
-    public void lock_map(Button[,] map)
-    {
-      for (int i = 0; i < sizeXmap; i++)
-      {
-        for (int j = 0; j < sizeYmap; j++)
-        {
+    public void lock_map(Button[,] map) {
+      for (int i = 0; i < sizeXmap; i++) {
+        for (int j = 0; j < sizeYmap; j++) {
           map[i, j].Enabled = false;
         }
       }
