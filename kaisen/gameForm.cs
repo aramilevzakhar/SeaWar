@@ -262,6 +262,7 @@ namespace kaisen {
         button.Text = "V";
         toogle_v_h = true;
       }
+      colors.Clear();
     }
 
     // bottom panel of button for setting ships
