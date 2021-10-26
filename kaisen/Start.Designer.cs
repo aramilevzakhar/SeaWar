@@ -43,7 +43,7 @@
       this.button1.Name = "button1";
       this.button1.Size = new System.Drawing.Size(202, 37);
       this.button1.TabIndex = 1;
-      this.button1.Text = "Start";
+      this.button1.Text = "Начать";
       this.button1.UseVisualStyleBackColor = true;
       this.button1.Click += new System.EventHandler(this.button1_Click);
       // 
@@ -82,7 +82,7 @@
       this.label1.Name = "label1";
       this.label1.Size = new System.Drawing.Size(202, 24);
       this.label1.TabIndex = 2;
-      this.label1.Text = "What is your name?";
+      this.label1.Text = "Введите ваше имя";
       this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
       // 
       // Start
@@ -93,7 +93,7 @@
       this.Controls.Add(this.tableLayoutPanel1);
       this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
       this.Name = "Start";
-      this.Text = "海の戦い";
+      this.Text = "Морской бой";
       this.tableLayoutPanel1.ResumeLayout(false);
       this.tableLayoutPanel1.PerformLayout();
       this.ResumeLayout(false);

@@ -14,7 +14,6 @@ namespace kaisen {
   public partial class gameForm :Form {
     int min = 0, sec = 0, msec = 0;
     bool toogle_v_h = false;
-    bool enableColorButton = true;
     public const int sizeXmap = 10;
     public const int sizeYmap = 10;
 
@@ -269,7 +268,16 @@ namespace kaisen {
     private void button252_Click(object sender, EventArgs e) {
       Button button = sender as Button;
       button.Enabled = false;
+
+      button.FlatStyle = FlatStyle.Flat;
+      button.FlatAppearance.BorderSize = 5;
+
       ship = Convert.ToInt16(button.Text);
+
+      label2.Text = "";
+      label3.Text = "";
+      label4.Text = "";
+
       canIclick = 1;
       lockPreview = true;
 
@@ -278,24 +286,6 @@ namespace kaisen {
     // exit
     private void button2_Click(object sender, EventArgs e) {
       Environment.Exit(0);
-    }
-
-    // button show
-    private void button3_Click(object sender, EventArgs e) {
-
-
-      for (int i = 0; i < sizeXmap; i++) {
-        for (int j = 0; j < sizeXmap; j++) {
-          if (myMapBin[i, j] == 1) {
-            myMap[i, j].BackColor = Color.Black;
-          }
-          if (enemyMapBin[i, j] == 1) {
-            enemyMap[i, j].BackColor = Color.Black;
-          }
-        }
-
-      }
-
     }
 
     // play
@@ -309,6 +299,7 @@ namespace kaisen {
 
         }
       }
+      buttonPlay.Enabled = false;
     }
 
     // timer label4 : label3 : label2
@@ -333,16 +324,7 @@ namespace kaisen {
 
     }
 
-    // surrender
-    private void button4_Click(object sender, EventArgs e) {
-      timer1.Enabled = false;
-      lock_map(enemyMap);
-      button3_Click(sender, e);
-
-      timestamp2 = DateTime.Now.ToLocalTime().ToString();
-
-      winner = Bot.GetName();
-      ans.create_history_game("history.txt", timestamp1, timestamp1, label4.Text, label3.Text, label2.Text, winner);
+    private void gameForm_Load(object sender, EventArgs e) {
 
     }
 
@@ -360,22 +342,18 @@ namespace kaisen {
           enemyMap[i, j].Enabled = false;
         }
       }
-
+      colors.Clear();
+      buttonPlay.Enabled = true;
       enemyMapBin = Bot.ConfigureShips();
       numberPoints = 0; Bot.numberPoints = 0;
       timer1.Enabled = false; msec = 0; sec = 0; min = 0;
 
-      btoggleVH.Enabled = true;
-      bship41.Enabled = true;
-      bship31.Enabled = true;
-      bship32.Enabled = true;
-      bship21.Enabled = true;
-      bship22.Enabled = true;
-      bship23.Enabled = true;
-      bship11.Enabled = true;
-      bship12.Enabled = true;
-      bship13.Enabled = true;
-      bship14.Enabled = true;
+      Button[] arr_panel_button = { btoggleVH, bship41, bship31, bship32, bship21, bship22, bship23, bship11, bship12, bship13, bship14 };
+      for (int i = 0; i < arr_panel_button.Length; i++) {
+        arr_panel_button[i].Enabled = true;
+        arr_panel_button[i].FlatAppearance.BorderColor = Color.Gray;
+        arr_panel_button[i].FlatAppearance.BorderSize = 1;
+      }
     }
 
 

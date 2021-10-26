@@ -42,21 +42,21 @@
       this.btoggleVH = new System.Windows.Forms.Button();
       this.buttonPlay = new System.Windows.Forms.Button();
       this.button2 = new System.Windows.Forms.Button();
-      this.button3 = new System.Windows.Forms.Button();
       this.button1 = new System.Windows.Forms.Button();
       this.label1 = new System.Windows.Forms.Label();
       this.timer1 = new System.Windows.Forms.Timer(this.components);
       this.label2 = new System.Windows.Forms.Label();
       this.label3 = new System.Windows.Forms.Label();
       this.label4 = new System.Windows.Forms.Label();
-      this.button4 = new System.Windows.Forms.Button();
       this.SuspendLayout();
       // 
       // bship23
       // 
       this.bship23.BackColor = System.Drawing.SystemColors.ControlDark;
-      this.bship23.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
-      this.bship23.ForeColor = System.Drawing.SystemColors.WindowFrame;
+      this.bship23.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+      this.bship23.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.bship23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.bship23.ForeColor = System.Drawing.Color.Black;
       this.bship23.Location = new System.Drawing.Point(189, 361);
       this.bship23.Name = "bship23";
       this.bship23.Size = new System.Drawing.Size(30, 29);
@@ -68,8 +68,10 @@
       // bship22
       // 
       this.bship22.BackColor = System.Drawing.SystemColors.ControlDark;
-      this.bship22.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
-      this.bship22.ForeColor = System.Drawing.SystemColors.WindowFrame;
+      this.bship22.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+      this.bship22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.bship22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.bship22.ForeColor = System.Drawing.Color.Black;
       this.bship22.Location = new System.Drawing.Point(159, 361);
       this.bship22.Name = "bship22";
       this.bship22.Size = new System.Drawing.Size(30, 29);
@@ -81,8 +83,10 @@
       // bship21
       // 
       this.bship21.BackColor = System.Drawing.SystemColors.ControlDark;
-      this.bship21.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
-      this.bship21.ForeColor = System.Drawing.SystemColors.WindowFrame;
+      this.bship21.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+      this.bship21.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.bship21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.bship21.ForeColor = System.Drawing.Color.Black;
       this.bship21.Location = new System.Drawing.Point(129, 361);
       this.bship21.Name = "bship21";
       this.bship21.Size = new System.Drawing.Size(30, 29);
@@ -94,9 +98,10 @@
       // bship11
       // 
       this.bship11.BackColor = System.Drawing.SystemColors.ControlDark;
-      this.bship11.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
-      this.bship11.FlatAppearance.BorderSize = 5;
-      this.bship11.ForeColor = System.Drawing.SystemColors.WindowFrame;
+      this.bship11.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+      this.bship11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.bship11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.bship11.ForeColor = System.Drawing.Color.Black;
       this.bship11.Location = new System.Drawing.Point(219, 361);
       this.bship11.Name = "bship11";
       this.bship11.Size = new System.Drawing.Size(30, 29);
@@ -108,8 +113,10 @@
       // bship32
       // 
       this.bship32.BackColor = System.Drawing.SystemColors.ControlDark;
-      this.bship32.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
-      this.bship32.ForeColor = System.Drawing.SystemColors.WindowFrame;
+      this.bship32.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+      this.bship32.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.bship32.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.bship32.ForeColor = System.Drawing.Color.Black;
       this.bship32.Location = new System.Drawing.Point(99, 361);
       this.bship32.Name = "bship32";
       this.bship32.Size = new System.Drawing.Size(30, 29);
@@ -121,8 +128,10 @@
       // bship31
       // 
       this.bship31.BackColor = System.Drawing.SystemColors.ControlDark;
-      this.bship31.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
-      this.bship31.ForeColor = System.Drawing.SystemColors.WindowFrame;
+      this.bship31.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+      this.bship31.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.bship31.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.bship31.ForeColor = System.Drawing.Color.Black;
       this.bship31.Location = new System.Drawing.Point(69, 361);
       this.bship31.Name = "bship31";
       this.bship31.Size = new System.Drawing.Size(30, 29);
@@ -134,8 +143,10 @@
       // bship12
       // 
       this.bship12.BackColor = System.Drawing.SystemColors.ControlDark;
-      this.bship12.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
-      this.bship12.ForeColor = System.Drawing.SystemColors.WindowFrame;
+      this.bship12.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+      this.bship12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.bship12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.bship12.ForeColor = System.Drawing.Color.Black;
       this.bship12.Location = new System.Drawing.Point(249, 361);
       this.bship12.Name = "bship12";
       this.bship12.Size = new System.Drawing.Size(30, 29);
@@ -147,9 +158,10 @@
       // bship41
       // 
       this.bship41.BackColor = System.Drawing.SystemColors.ControlDark;
-      this.bship41.FlatAppearance.BorderColor = System.Drawing.Color.PaleGreen;
-      this.bship41.FlatAppearance.BorderSize = 4;
-      this.bship41.ForeColor = System.Drawing.SystemColors.WindowFrame;
+      this.bship41.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+      this.bship41.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.bship41.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.bship41.ForeColor = System.Drawing.Color.Black;
       this.bship41.Location = new System.Drawing.Point(39, 361);
       this.bship41.Name = "bship41";
       this.bship41.Size = new System.Drawing.Size(30, 29);
@@ -161,8 +173,10 @@
       // bship13
       // 
       this.bship13.BackColor = System.Drawing.SystemColors.ControlDark;
-      this.bship13.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
-      this.bship13.ForeColor = System.Drawing.SystemColors.WindowFrame;
+      this.bship13.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+      this.bship13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.bship13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.bship13.ForeColor = System.Drawing.Color.Black;
       this.bship13.Location = new System.Drawing.Point(279, 361);
       this.bship13.Name = "bship13";
       this.bship13.Size = new System.Drawing.Size(30, 29);
@@ -174,8 +188,10 @@
       // bship14
       // 
       this.bship14.BackColor = System.Drawing.SystemColors.ControlDark;
-      this.bship14.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
-      this.bship14.ForeColor = System.Drawing.SystemColors.WindowFrame;
+      this.bship14.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+      this.bship14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.bship14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.bship14.ForeColor = System.Drawing.Color.Black;
       this.bship14.Location = new System.Drawing.Point(309, 361);
       this.bship14.Name = "bship14";
       this.bship14.Size = new System.Drawing.Size(30, 29);
@@ -187,9 +203,10 @@
       // btoggleVH
       // 
       this.btoggleVH.BackColor = System.Drawing.SystemColors.ControlDark;
-      this.btoggleVH.FlatAppearance.BorderSize = 5;
-      this.btoggleVH.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-      this.btoggleVH.ForeColor = System.Drawing.SystemColors.WindowFrame;
+      this.btoggleVH.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+      this.btoggleVH.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.btoggleVH.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.btoggleVH.ForeColor = System.Drawing.Color.Black;
       this.btoggleVH.Location = new System.Drawing.Point(9, 361);
       this.btoggleVH.Name = "btoggleVH";
       this.btoggleVH.Size = new System.Drawing.Size(30, 29);
@@ -208,7 +225,7 @@
       this.buttonPlay.Name = "buttonPlay";
       this.buttonPlay.Size = new System.Drawing.Size(75, 29);
       this.buttonPlay.TabIndex = 1;
-      this.buttonPlay.Text = "Start";
+      this.buttonPlay.Text = "Начать";
       this.buttonPlay.UseVisualStyleBackColor = true;
       this.buttonPlay.Click += new System.EventHandler(this.buttonPlay_Click);
       // 
@@ -218,27 +235,13 @@
       this.button2.BackColor = System.Drawing.SystemColors.Control;
       this.button2.FlatAppearance.BorderSize = 0;
       this.button2.ForeColor = System.Drawing.SystemColors.WindowFrame;
-      this.button2.Location = new System.Drawing.Point(426, 361);
+      this.button2.Location = new System.Drawing.Point(507, 361);
       this.button2.Name = "button2";
       this.button2.Size = new System.Drawing.Size(75, 29);
       this.button2.TabIndex = 1;
-      this.button2.Text = "Exit";
+      this.button2.Text = "Выход";
       this.button2.UseVisualStyleBackColor = true;
       this.button2.Click += new System.EventHandler(this.button2_Click);
-      // 
-      // button3
-      // 
-      this.button3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-      this.button3.BackColor = System.Drawing.SystemColors.Control;
-      this.button3.FlatAppearance.BorderSize = 0;
-      this.button3.ForeColor = System.Drawing.SystemColors.WindowFrame;
-      this.button3.Location = new System.Drawing.Point(507, 361);
-      this.button3.Name = "button3";
-      this.button3.Size = new System.Drawing.Size(75, 29);
-      this.button3.TabIndex = 1;
-      this.button3.Text = "Show";
-      this.button3.UseVisualStyleBackColor = true;
-      this.button3.Click += new System.EventHandler(this.button3_Click);
       // 
       // button1
       // 
@@ -246,11 +249,11 @@
       this.button1.BackColor = System.Drawing.SystemColors.Control;
       this.button1.FlatAppearance.BorderSize = 0;
       this.button1.ForeColor = System.Drawing.SystemColors.WindowFrame;
-      this.button1.Location = new System.Drawing.Point(345, 396);
+      this.button1.Location = new System.Drawing.Point(426, 361);
       this.button1.Name = "button1";
       this.button1.Size = new System.Drawing.Size(75, 29);
       this.button1.TabIndex = 1;
-      this.button1.Text = "Restart";
+      this.button1.Text = "Заново";
       this.button1.UseVisualStyleBackColor = true;
       this.button1.Click += new System.EventHandler(this.button1_Click_1);
       // 
@@ -258,7 +261,7 @@
       // 
       this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
       this.label1.AutoSize = true;
-      this.label1.Location = new System.Drawing.Point(135, 335);
+      this.label1.Location = new System.Drawing.Point(135, 304);
       this.label1.Name = "label1";
       this.label1.Size = new System.Drawing.Size(0, 13);
       this.label1.TabIndex = 2;
@@ -271,7 +274,7 @@
       // 
       this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
       this.label2.AutoSize = true;
-      this.label2.Location = new System.Drawing.Point(94, 335);
+      this.label2.Location = new System.Drawing.Point(94, 304);
       this.label2.Name = "label2";
       this.label2.Size = new System.Drawing.Size(0, 13);
       this.label2.TabIndex = 2;
@@ -280,7 +283,7 @@
       // 
       this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
       this.label3.AutoSize = true;
-      this.label3.Location = new System.Drawing.Point(53, 335);
+      this.label3.Location = new System.Drawing.Point(53, 304);
       this.label3.Name = "label3";
       this.label3.Size = new System.Drawing.Size(0, 13);
       this.label3.TabIndex = 2;
@@ -289,38 +292,22 @@
       // 
       this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
       this.label4.AutoSize = true;
-      this.label4.Location = new System.Drawing.Point(12, 335);
+      this.label4.Location = new System.Drawing.Point(12, 304);
       this.label4.Name = "label4";
       this.label4.Size = new System.Drawing.Size(0, 13);
       this.label4.TabIndex = 2;
-      // 
-      // button4
-      // 
-      this.button4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-      this.button4.BackColor = System.Drawing.SystemColors.Control;
-      this.button4.FlatAppearance.BorderSize = 0;
-      this.button4.ForeColor = System.Drawing.SystemColors.WindowFrame;
-      this.button4.Location = new System.Drawing.Point(426, 396);
-      this.button4.Name = "button4";
-      this.button4.Size = new System.Drawing.Size(75, 29);
-      this.button4.TabIndex = 1;
-      this.button4.Text = "Сдаться";
-      this.button4.UseVisualStyleBackColor = true;
-      this.button4.Click += new System.EventHandler(this.button4_Click);
       // 
       // gameForm
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.BackColor = System.Drawing.SystemColors.Control;
-      this.ClientSize = new System.Drawing.Size(764, 475);
+      this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+      this.ClientSize = new System.Drawing.Size(814, 413);
       this.Controls.Add(this.label4);
       this.Controls.Add(this.label3);
       this.Controls.Add(this.label2);
       this.Controls.Add(this.label1);
-      this.Controls.Add(this.button4);
       this.Controls.Add(this.button1);
-      this.Controls.Add(this.button3);
       this.Controls.Add(this.button2);
       this.Controls.Add(this.buttonPlay);
       this.Controls.Add(this.bship14);
@@ -336,9 +323,10 @@
       this.Controls.Add(this.bship12);
       this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
       this.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-      this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+      this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
       this.Name = "gameForm";
       this.Text = "Морской бой";
+      this.Load += new System.EventHandler(this.gameForm_Load);
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -358,14 +346,12 @@
         private System.Windows.Forms.Button btoggleVH;
         private System.Windows.Forms.Button buttonPlay;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
         public System.Windows.Forms.Label label1;
         private System.Windows.Forms.Timer timer1;
         public System.Windows.Forms.Label label2;
         public System.Windows.Forms.Label label3;
         public System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button4;
     }
 }
 
