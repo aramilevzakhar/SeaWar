@@ -1,2 +1,1 @@
-# kaisen
-sea_war
+# SeaWar
